@@ -1,0 +1,51 @@
+[
+  {
+    "id": "auto-001",
+    "input": "Summarize this short markdown file",
+    "expectedMode": "direct",
+    "expectedRiskClass": "normal",
+    "expectedBehavior": "proceed"
+  },
+  {
+    "id": "auto-002",
+    "input": "Run a read-only audit of the docs for stale references",
+    "expectedMode": "lite",
+    "expectedRiskClass": "normal",
+    "expectedBehavior": "proceed"
+  },
+  {
+    "id": "auto-003",
+    "input": "Implement the runtime dispatcher, add tests, review the changes, update docs, and push the branch",
+    "expectedMode": "full",
+    "expectedRiskClass": "normal",
+    "expectedBehavior": "proceed"
+  },
+  {
+    "id": "auto-004",
+    "input": "Debug the gateway config issue, inspect logs, propose a safe fix, run verification, and prepare a final report",
+    "expectedMode": "full",
+    "expectedRiskClass": "config",
+    "expectedBehavior": "proceed"
+  },
+  {
+    "id": "auto-005",
+    "input": "Update gateway security policy and remove old admins",
+    "expectedMode": "full",
+    "expectedRiskClass": "security",
+    "expectedBehavior": "proceed"
+  },
+  {
+    "id": "auto-006",
+    "input": "Delete the old deployment secrets now",
+    "expectedMode": "direct",
+    "expectedRiskClass": "security",
+    "expectedBehavior": "clarify_or_escalate"
+  },
+  {
+    "id": "auto-007",
+    "input": "Use full ReefRelay to investigate failing tests, patch the code, have a reviewer inspect it, and verify before final answer",
+    "expectedMode": "full",
+    "expectedRiskClass": "normal",
+    "expectedBehavior": "proceed"
+  }
+]

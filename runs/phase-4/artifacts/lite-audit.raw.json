@@ -1,0 +1,28 @@
+{
+  "taskId": "lite-audit",
+  "producedAt": "2026-05-12T22:30:00.000Z",
+  "raw": {
+    "taskId": "lite-audit",
+    "status": "done",
+    "summary": "reviewer lane completed bounded lite dispatch for lite-command-audit-docs-for-stale-roadmap-items.",
+    "findings": [
+      {
+        "id": "lite-audit-finding-1",
+        "claim": "lite-audit completed read-only lane for audit docs for stale roadmap items",
+        "evidence": [
+          "task:lite-audit:objective",
+          "task:lite-audit:scope"
+        ],
+        "confidence": "high",
+        "risk": "low",
+        "recommendedAction": "accept",
+        "doNotMutate": true,
+        "observedAt": "2026-05-12T22:30:00.000Z"
+      }
+    ],
+    "blockers": [],
+    "assumptions": [
+      "Deterministic lite runtime used a mock child runner with real child-result contract shape."
+    ]
+  }
+}

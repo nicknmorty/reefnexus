@@ -1,0 +1,234 @@
+{
+  "schemaVersion": "0.1.0",
+  "runId": "run-auto-implement-the-runtime-dispatcher-add-tests-review-the-ch",
+  "mode": "full",
+  "createdAt": "2026-05-12T00:00:00.000Z",
+  "updatedAt": "2026-05-12T00:00:00.000Z",
+  "goal": "Implement the runtime dispatcher, add tests, review the changes, update docs, and push the branch",
+  "pattern": "hierarchical",
+  "riskClass": "normal",
+  "status": "queued",
+  "routing": {
+    "routeOutcome": "selected",
+    "confidence": 0.84,
+    "selectedLane": "full-auto",
+    "fallbackUsed": false,
+    "clarificationAsked": false,
+    "escalationTriggered": false,
+    "reasons": [
+      "mutation/change requested",
+      "evidence or verification required",
+      "4 full-mode signal(s)",
+      "1 lite-mode signal(s)"
+    ]
+  },
+  "taskflow": {
+    "jobId": "run-auto-implement-the-runtime-dispatcher-add-tests-review-the-ch",
+    "ownerSessionKey": "session:reefnexus-phase-1",
+    "lifecycle": "created",
+    "revision": 1,
+    "childTaskIds": [
+      "intake-plan",
+      "implementation",
+      "review",
+      "verification",
+      "synthesis"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "intake-plan",
+      "role": "researcher",
+      "objective": "Clarify requirements, constraints, risks, and acceptance criteria for: Implement the runtime dispatcher, add tests, review the changes, update docs, and push the branch",
+      "boundaries": [
+        "Stay within the request scope",
+        "Do not perform irreversible/external actions without orchestrator approval"
+      ],
+      "inputs": [
+        "operator request",
+        "routing metadata"
+      ],
+      "outputs": [
+        "scope summary",
+        "risk notes",
+        "acceptance criteria"
+      ],
+      "timeoutOrDeadline": "bounded interactive session",
+      "escalationCondition": "Missing authority, unsafe ambiguity, blocked dependency, or insufficient evidence",
+      "artifactTargets": [],
+      "status": "pending",
+      "owner": "reefrelay",
+      "startedAt": null,
+      "endedAt": null,
+      "evidence": [],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "evidence for every material claim"
+        ],
+        "result": "pending"
+      }
+    },
+    {
+      "id": "implementation",
+      "role": "implementer",
+      "objective": "Produce the scoped implementation or change set for: Implement the runtime dispatcher, add tests, review the changes, update docs, and push the branch",
+      "boundaries": [
+        "Stay within the request scope",
+        "Do not perform irreversible/external actions without orchestrator approval"
+      ],
+      "inputs": [
+        "operator request",
+        "intake-plan output"
+      ],
+      "outputs": [
+        "patch/artifact summary",
+        "changed files",
+        "implementation notes"
+      ],
+      "timeoutOrDeadline": "bounded interactive session",
+      "escalationCondition": "Missing authority, unsafe ambiguity, blocked dependency, or insufficient evidence",
+      "artifactTargets": [],
+      "status": "pending",
+      "owner": "reefrelay",
+      "startedAt": null,
+      "endedAt": null,
+      "evidence": [],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "diff or artifact references"
+        ],
+        "result": "pending"
+      }
+    },
+    {
+      "id": "review",
+      "role": "reviewer",
+      "objective": "Review the implementation for correctness, scope, safety, and maintainability: Implement the runtime dispatcher, add tests, review the changes, update docs, and push the branch",
+      "boundaries": [
+        "Stay within the request scope",
+        "Do not perform irreversible/external actions without orchestrator approval"
+      ],
+      "inputs": [
+        "implementation output",
+        "acceptance criteria"
+      ],
+      "outputs": [
+        "review findings",
+        "required fixes",
+        "approval/blocking recommendation"
+      ],
+      "timeoutOrDeadline": "bounded interactive session",
+      "escalationCondition": "Missing authority, unsafe ambiguity, blocked dependency, or insufficient evidence",
+      "artifactTargets": [],
+      "status": "pending",
+      "owner": "reefrelay",
+      "startedAt": null,
+      "endedAt": null,
+      "evidence": [],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "each finding tied to concrete evidence"
+        ],
+        "result": "pending"
+      }
+    },
+    {
+      "id": "verification",
+      "role": "tester",
+      "objective": "Run or define the required verification checks for: Implement the runtime dispatcher, add tests, review the changes, update docs, and push the branch",
+      "boundaries": [
+        "Stay within the request scope",
+        "Do not perform irreversible/external actions without orchestrator approval"
+      ],
+      "inputs": [
+        "operator request",
+        "implementation/review outputs"
+      ],
+      "outputs": [
+        "test/check report",
+        "pass/fail breakdown"
+      ],
+      "timeoutOrDeadline": "bounded interactive session",
+      "escalationCondition": "Missing authority, unsafe ambiguity, blocked dependency, or insufficient evidence",
+      "artifactTargets": [],
+      "status": "pending",
+      "owner": "reefrelay",
+      "startedAt": null,
+      "endedAt": null,
+      "evidence": [],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "command output or explicit verification evidence"
+        ],
+        "result": "pending"
+      }
+    },
+    {
+      "id": "synthesis",
+      "role": "synthesizer",
+      "objective": "Prepare final synthesis only after child results, finding decisions, and gates are reviewed for: Implement the runtime dispatcher, add tests, review the changes, update docs, and push the branch",
+      "boundaries": [
+        "Stay within the request scope",
+        "Do not perform irreversible/external actions without orchestrator approval"
+      ],
+      "inputs": [
+        "normalized child results",
+        "finding decisions",
+        "gate states"
+      ],
+      "outputs": [
+        "final synthesis draft with evidence and caveats"
+      ],
+      "timeoutOrDeadline": "bounded interactive session",
+      "escalationCondition": "Missing authority, unsafe ambiguity, blocked dependency, or insufficient evidence",
+      "artifactTargets": [],
+      "status": "pending",
+      "owner": "reefrelay",
+      "startedAt": null,
+      "endedAt": null,
+      "evidence": [],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "safety/verification/final acceptance gates referenced"
+        ],
+        "result": "pending"
+      }
+    }
+  ],
+  "childResults": [],
+  "findingDecisions": [],
+  "gates": {
+    "safety": {
+      "result": "pending",
+      "notes": ""
+    },
+    "verification": {
+      "result": "pending",
+      "notes": ""
+    },
+    "finalAcceptance": {
+      "result": "pending",
+      "notes": ""
+    }
+  },
+  "artifacts": [],
+  "decisions": [
+    {
+      "id": "route-selection",
+      "decision": "full",
+      "reason": "mutation/change requested; evidence or verification required; 4 full-mode signal(s); 1 lite-mode signal(s)",
+      "timestamp": "2026-05-12T00:00:00.000Z"
+    }
+  ],
+  "blockers": []
+}

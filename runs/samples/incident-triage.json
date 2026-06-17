@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "0.1.0",
+  "runId": "run-incident-triage",
+  "mode": "full",
+  "createdAt": "2026-05-12T00:00:00.000Z",
+  "updatedAt": "2026-05-12T00:00:00.000Z",
+  "goal": "Triaging intermittent 5xx spikes",
+  "pattern": "concurrent",
+  "riskClass": "sensitive",
+  "status": "queued",
+  "routing": {
+    "routeOutcome": "selected",
+    "confidence": 0.83,
+    "selectedLane": "incident",
+    "fallbackUsed": false,
+    "clarificationAsked": false,
+    "escalationTriggered": false,
+    "reasons": [],
+    "operatorOverride": false,
+    "overrideSource": null,
+    "autoSelection": null
+  },
+  "taskflow": {
+    "jobId": "run-incident-triage",
+    "ownerSessionKey": "session:incident-room",
+    "lifecycle": "created",
+    "revision": 1,
+    "childTaskIds": [
+      "telemetry-1",
+      "changes-1",
+      "test-1"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "telemetry-1",
+      "role": "researcher",
+      "objective": "Collect logs and error-rate windows",
+      "boundaries": [],
+      "inputs": [
+        "monitoring dashboards"
+      ],
+      "outputs": [
+        "telemetry snapshot"
+      ],
+      "timeoutOrDeadline": null,
+      "escalationCondition": null,
+      "artifactTargets": [],
+      "status": "pending",
+      "owner": "reefrelay",
+      "startedAt": null,
+      "endedAt": null,
+      "evidence": [],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "source timestamps included"
+        ],
+        "result": "pending"
+      }
+    },
+    {
+      "id": "changes-1",
+      "role": "reviewer",
+      "objective": "Review recent deploy and config changes",
+      "boundaries": [],
+      "inputs": [
+        "git history",
+        "deploy logs"
+      ],
+      "outputs": [
+        "change-risk table"
+      ],
+      "timeoutOrDeadline": null,
+      "escalationCondition": null,
+      "artifactTargets": [],
+      "status": "pending",
+      "owner": "reefrelay",
+      "startedAt": null,
+      "endedAt": null,
+      "evidence": [],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "suspect commits linked"
+        ],
+        "result": "pending"
+      }
+    },
+    {
+      "id": "test-1",
+      "role": "tester",
+      "objective": "Run focused health checks",
+      "boundaries": [],
+      "inputs": [
+        "candidate hypotheses"
+      ],
+      "outputs": [
+        "check results"
+      ],
+      "timeoutOrDeadline": null,
+      "escalationCondition": null,
+      "artifactTargets": [],
+      "status": "pending",
+      "owner": "reefrelay",
+      "startedAt": null,
+      "endedAt": null,
+      "evidence": [],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "pass/fail output"
+        ],
+        "result": "pending"
+      }
+    }
+  ],
+  "childResults": [],
+  "findingDecisions": [],
+  "gates": {
+    "safety": {
+      "result": "pending",
+      "notes": ""
+    },
+    "verification": {
+      "result": "pending",
+      "notes": ""
+    },
+    "finalAcceptance": {
+      "result": "pending",
+      "notes": ""
+    }
+  },
+  "artifacts": [],
+  "decisions": [],
+  "blockers": []
+}

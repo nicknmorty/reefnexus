@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "reefrelay-quality-feedback@0.1.0",
+  "generatedAt": "2026-05-12T23:59:00.000Z",
+  "source": {
+    "type": "run",
+    "path": "runs/phase-4b-metrics/failed-run.json"
+  },
+  "advisoryOnly": true,
+  "events": [
+    {
+      "schemaVersion": "reefrelay-quality-feedback@0.1.0",
+      "id": "qf-run-auto-phase-4b-failed-metrics-fixture-coordinate-implementatio-intake-plan-fa",
+      "createdAt": "2026-05-12T23:59:00.000Z",
+      "trigger": "child-failed",
+      "severity": "high",
+      "sourceRun": {
+        "runId": "run-auto-phase-4b-failed-metrics-fixture-coordinate-implementatio",
+        "path": "runs/phase-4b-metrics/failed-run.json",
+        "mode": "full",
+        "status": "failed",
+        "sendDecision": null
+      },
+      "affected": {
+        "lane": "researcher",
+        "taskId": "intake-plan",
+        "recipe": "full-auto"
+      },
+      "evidence": [
+        "artifact:raw-intake-plan",
+        "Forced failure for metrics fixture coverage."
+      ],
+      "recommendedRepair": "Inspect retained raw child output, tighten the child result contract, and rerun or escalate the failed lane before any send decision.",
+      "regressionCandidate": true,
+      "advisoryOnly": true,
+      "routingPolicyChange": null,
+      "gatePolicyChange": null
+    },
+    {
+      "schemaVersion": "reefrelay-quality-feedback@0.1.0",
+      "id": "qf-run-auto-phase-4b-failed-metrics-fixture-coordinate-implementatio-implementation",
+      "createdAt": "2026-05-12T23:59:00.000Z",
+      "trigger": "child-failed",
+      "severity": "high",
+      "sourceRun": {
+        "runId": "run-auto-phase-4b-failed-metrics-fixture-coordinate-implementatio",
+        "path": "runs/phase-4b-metrics/failed-run.json",
+        "mode": "full",
+        "status": "failed",
+        "sendDecision": null
+      },
+      "affected": {
+        "lane": "implementer",
+        "taskId": "implementation",
+        "recipe": "full-auto"
+      },
+      "evidence": [
+        "artifact:raw-implementation",
+        "Forced failure for metrics fixture coverage."
+      ],
+      "recommendedRepair": "Inspect retained raw child output, tighten the child result contract, and rerun or escalate the failed lane before any send decision.",
+      "regressionCandidate": true,
+      "advisoryOnly": true,
+      "routingPolicyChange": null,
+      "gatePolicyChange": null
+    },
+    {
+      "schemaVersion": "reefrelay-quality-feedback@0.1.0",
+      "id": "qf-run-auto-phase-4b-failed-metrics-fixture-coordinate-implementatio-review-failed-",
+      "createdAt": "2026-05-12T23:59:00.000Z",
+      "trigger": "child-failed",
+      "severity": "high",
+      "sourceRun": {
+        "runId": "run-auto-phase-4b-failed-metrics-fixture-coordinate-implementatio",
+        "path": "runs/phase-4b-metrics/failed-run.json",
+        "mode": "full",
+        "status": "failed",
+        "sendDecision": null
+      },
+      "affected": {
+        "lane": "reviewer",
+        "taskId": "review",
+        "recipe": "full-auto"
+      },
+      "evidence": [
+        "artifact:raw-review",
+        "Forced failure for metrics fixture coverage."
+      ],
+      "recommendedRepair": "Inspect retained raw child output, tighten the child result contract, and rerun or escalate the failed lane before any send decision.",
+      "regressionCandidate": true,
+      "advisoryOnly": true,
+      "routingPolicyChange": null,
+      "gatePolicyChange": null
+    },
+    {
+      "schemaVersion": "reefrelay-quality-feedback@0.1.0",
+      "id": "qf-run-auto-phase-4b-failed-metrics-fixture-coordinate-implementatio-verification-f",
+      "createdAt": "2026-05-12T23:59:00.000Z",
+      "trigger": "child-failed",
+      "severity": "high",
+      "sourceRun": {
+        "runId": "run-auto-phase-4b-failed-metrics-fixture-coordinate-implementatio",
+        "path": "runs/phase-4b-metrics/failed-run.json",
+        "mode": "full",
+        "status": "failed",
+        "sendDecision": null
+      },
+      "affected": {
+        "lane": "tester",
+        "taskId": "verification",
+        "recipe": "full-auto"
+      },
+      "evidence": [
+        "artifact:raw-verification",
+        "Forced failure for metrics fixture coverage."
+      ],
+      "recommendedRepair": "Inspect retained raw child output, tighten the child result contract, and rerun or escalate the failed lane before any send decision.",
+      "regressionCandidate": true,
+      "advisoryOnly": true,
+      "routingPolicyChange": null,
+      "gatePolicyChange": null
+    },
+    {
+      "schemaVersion": "reefrelay-quality-feedback@0.1.0",
+      "id": "qf-run-auto-phase-4b-failed-metrics-fixture-coordinate-implementatio-synthesis-fail",
+      "createdAt": "2026-05-12T23:59:00.000Z",
+      "trigger": "child-failed",
+      "severity": "high",
+      "sourceRun": {
+        "runId": "run-auto-phase-4b-failed-metrics-fixture-coordinate-implementatio",
+        "path": "runs/phase-4b-metrics/failed-run.json",
+        "mode": "full",
+        "status": "failed",
+        "sendDecision": null
+      },
+      "affected": {
+        "lane": "synthesizer",
+        "taskId": "synthesis",
+        "recipe": "full-auto"
+      },
+      "evidence": [
+        "artifact:raw-synthesis",
+        "Forced failure for metrics fixture coverage."
+      ],
+      "recommendedRepair": "Inspect retained raw child output, tighten the child result contract, and rerun or escalate the failed lane before any send decision.",
+      "regressionCandidate": true,
+      "advisoryOnly": true,
+      "routingPolicyChange": null,
+      "gatePolicyChange": null
+    }
+  ]
+}

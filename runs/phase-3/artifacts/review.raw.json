@@ -1,0 +1,27 @@
+{
+  "taskId": "review",
+  "producedAt": "2026-05-12T22:37:00.000Z",
+  "raw": {
+    "taskId": "review",
+    "status": "done",
+    "summary": "reviewer lane completed bounded dispatch for run-auto-implement-reefnexus-mvp-phase-3-gates-final-synthesis-do.",
+    "findings": [
+      {
+        "id": "review-finding-3",
+        "claim": "review completed its bounded contract for reviewer lane",
+        "evidence": [
+          "artifact:raw-review",
+          "task:review:objective"
+        ],
+        "confidence": "high",
+        "severity": "low",
+        "recommendedAction": "accept",
+        "observedAt": "2026-05-12T22:37:00.000Z"
+      }
+    ],
+    "blockers": [],
+    "assumptions": [
+      "Deterministic dispatcher used a mock child runner with real child-result contract shape."
+    ]
+  }
+}

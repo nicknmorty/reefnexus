@@ -1,0 +1,46 @@
+{
+  "id": "memory-cleanup-readonly-audit",
+  "goal": "Find memory cleanup candidates without mutating source files",
+  "mode": "lite",
+  "pattern": "concurrent",
+  "riskClass": "normal",
+  "ownerSessionKey": "session:reefnexus-dev",
+  "mutationPolicy": "orchestrator-only",
+  "routing": {
+    "routeOutcome": "selected",
+    "confidence": 0.93,
+    "selectedLane": "lite-readonly-audit"
+  },
+  "contracts": [
+    {
+      "taskId": "audit-daily-notes",
+      "role": "reviewer",
+      "objective": "Audit daily notes for stale or archive-worthy content",
+      "scope": ["memory/daily/"],
+      "mode": "read-only",
+      "expectedOutputs": ["child result packet"],
+      "verificationRequired": ["evidence path for every candidate"],
+      "mutationAllowed": false
+    },
+    {
+      "taskId": "audit-typed-lanes",
+      "role": "reviewer",
+      "objective": "Audit typed memory lanes for duplicated or stale facts",
+      "scope": ["memory/projects/", "memory/contacts/", "memory/groups/", "memory/incidents/"],
+      "mode": "read-only",
+      "expectedOutputs": ["child result packet"],
+      "verificationRequired": ["evidence path for every candidate"],
+      "mutationAllowed": false
+    },
+    {
+      "taskId": "synthesize-findings",
+      "role": "synthesizer",
+      "objective": "Normalize child findings and prepare accept/reject/defer candidates for orchestrator review",
+      "scope": ["child result packets"],
+      "mode": "read-only",
+      "expectedOutputs": ["finding classification draft"],
+      "verificationRequired": ["every finding has evidence and recommended action"],
+      "mutationAllowed": false
+    }
+  ]
+}

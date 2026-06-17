@@ -1,0 +1,10 @@
+flowchart TD
+    A[Intake & Classify] --> B[Plan Contracts]
+    B --> C1[Researcher]
+    B --> C2[Implementer]
+    C1 --> D[Fan-in Reconcile]
+    C2 --> D
+    D --> E[Reviewer + Tester]
+    E --> F{Gates Passed?}
+    F -->|Yes| G[Final Response]
+    F -->|No| H[Blocked + Repair Path]

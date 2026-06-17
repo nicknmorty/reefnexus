@@ -1,0 +1,211 @@
+[
+  {
+    "id": "stale-evidence-reference",
+    "description": "A finding decision reviews evidence that is not attached to the underlying finding.",
+    "expectedGuard": "reject-stale-evidence",
+    "run": {
+      "runId": "failure-stale-evidence",
+      "mode": "full",
+      "status": "running",
+      "artifacts": [],
+      "childResults": [
+        {
+          "taskId": "review",
+          "status": "done",
+          "summary": "Review found one issue.",
+          "findings": [
+            {
+              "id": "finding-stale-evidence",
+              "claim": "A stale source supports this claim.",
+              "evidence": ["docs/old.md:10"],
+              "confidence": "high",
+              "severity": "medium",
+              "recommendedAction": "accept"
+            }
+          ],
+          "blockers": [],
+          "assumptions": []
+        }
+      ],
+      "findingDecisions": [
+        {
+          "findingId": "finding-stale-evidence",
+          "taskId": "review",
+          "decision": "accepted",
+          "reason": "Looks supported.",
+          "decider": "orchestrator",
+          "evidenceReviewed": ["docs/new.md:10"]
+        }
+      ],
+      "gates": {
+        "safety": { "result": "pending", "notes": "" },
+        "verification": { "result": "pending", "notes": "" },
+        "finalAcceptance": { "result": "pending", "notes": "" }
+      }
+    }
+  },
+  {
+    "id": "weak-worker-output",
+    "description": "A done child result contains a vague finding without evidence.",
+    "expectedGuard": "reject-unsupported-finding",
+    "run": {
+      "runId": "failure-weak-worker-output",
+      "mode": "full",
+      "status": "running",
+      "artifacts": [],
+      "childResults": [
+        {
+          "taskId": "implementation",
+          "status": "done",
+          "summary": "Everything is probably fine.",
+          "findings": [
+            {
+              "id": "finding-vague",
+              "claim": "The change seems okay.",
+              "evidence": [],
+              "confidence": "medium",
+              "severity": "low",
+              "recommendedAction": "accept"
+            }
+          ],
+          "blockers": [],
+          "assumptions": []
+        }
+      ],
+      "findingDecisions": [],
+      "gates": {
+        "safety": { "result": "pending", "notes": "" },
+        "verification": { "result": "pending", "notes": "" },
+        "finalAcceptance": { "result": "pending", "notes": "" }
+      }
+    }
+  },
+  {
+    "id": "blocked-lane-final-send",
+    "description": "A blocked child lane must force no-send until repaired or escalated.",
+    "expectedGuard": "force-no-send",
+    "run": {
+      "runId": "failure-blocked-lane",
+      "mode": "full",
+      "status": "blocked",
+      "artifacts": [],
+      "childResults": [
+        {
+          "taskId": "verification",
+          "status": "blocked",
+          "summary": "Tests could not run.",
+          "findings": [],
+          "blockers": ["Verification command requires missing credentials."],
+          "assumptions": []
+        }
+      ],
+      "findingDecisions": [],
+      "finalDecision": {
+        "sendDecision": "send",
+        "reason": "Incorrect attempt to send despite blocked verification.",
+        "persistedAt": "2026-05-12T23:30:00.000Z"
+      },
+      "gates": {
+        "safety": { "result": "passed", "notes": "" },
+        "verification": { "result": "blocked", "notes": "" },
+        "finalAcceptance": { "result": "passed", "notes": "" }
+      }
+    }
+  },
+  {
+    "id": "conflicting-findings",
+    "description": "Two accepted findings make conflicting claims about the same target.",
+    "expectedGuard": "defer-conflict",
+    "run": {
+      "runId": "failure-conflicting-findings",
+      "mode": "full",
+      "status": "running",
+      "artifacts": [],
+      "childResults": [
+        {
+          "taskId": "review-a",
+          "status": "done",
+          "summary": "Review A says tests passed.",
+          "findings": [
+            {
+              "id": "finding-tests-pass",
+              "claim": "verification target npm-test passed",
+              "target": "npm-test",
+              "verdict": "passed",
+              "evidence": ["artifact:test-a"],
+              "confidence": "high",
+              "severity": "low",
+              "recommendedAction": "accept"
+            }
+          ],
+          "blockers": [],
+          "assumptions": []
+        },
+        {
+          "taskId": "review-b",
+          "status": "done",
+          "summary": "Review B says tests failed.",
+          "findings": [
+            {
+              "id": "finding-tests-fail",
+              "claim": "verification target npm-test failed",
+              "target": "npm-test",
+              "verdict": "failed",
+              "evidence": ["artifact:test-b"],
+              "confidence": "high",
+              "severity": "medium",
+              "recommendedAction": "accept"
+            }
+          ],
+          "blockers": [],
+          "assumptions": []
+        }
+      ],
+      "findingDecisions": [
+        {
+          "findingId": "finding-tests-pass",
+          "decision": "accepted",
+          "reason": "Accepted without conflict check.",
+          "decider": "orchestrator",
+          "evidenceReviewed": ["artifact:test-a"]
+        },
+        {
+          "findingId": "finding-tests-fail",
+          "decision": "accepted",
+          "reason": "Accepted without conflict check.",
+          "decider": "orchestrator",
+          "evidenceReviewed": ["artifact:test-b"]
+        }
+      ],
+      "gates": {
+        "safety": { "result": "pending", "notes": "" },
+        "verification": { "result": "pending", "notes": "" },
+        "finalAcceptance": { "result": "pending", "notes": "" }
+      }
+    }
+  },
+  {
+    "id": "malformed-artifact",
+    "description": "Artifact pointers must include id, type, path, producer task, and created timestamp.",
+    "expectedGuard": "reject-malformed-artifact",
+    "run": {
+      "runId": "failure-malformed-artifact",
+      "mode": "full",
+      "status": "running",
+      "artifacts": [
+        {
+          "id": "bad-artifact",
+          "type": "report",
+          "producerTaskId": "review"
+        }
+      ],
+      "childResults": [],
+      "findingDecisions": [],
+      "gates": {
+        "safety": { "result": "pending", "notes": "" },
+        "verification": { "result": "pending", "notes": "" },
+        "finalAcceptance": { "result": "pending", "notes": "" }
+      }
+    }
+  }
+]

@@ -1,0 +1,66 @@
+{
+  "id": "normal-docs-pass",
+  "goal": "Update docs index and verify links",
+  "pattern": "sequential",
+  "riskClass": "normal",
+  "ownerSessionKey": "session:reefnexus-dev",
+  "routing": {
+    "routeOutcome": "selected",
+    "confidence": 0.91,
+    "selectedLane": "docs"
+  },
+  "contracts": [
+    {
+      "taskId": "research-1",
+      "role": "researcher",
+      "objective": "Find missing links and stale references",
+      "inputs": ["README.md", "docs/"],
+      "expectedOutputs": ["issue list"],
+      "verificationRequired": ["manual link check"]
+    },
+    {
+      "taskId": "implement-1",
+      "role": "implementer",
+      "objective": "Fix stale links",
+      "inputs": ["issue list"],
+      "expectedOutputs": ["docs patch"],
+      "verificationRequired": ["npm test"]
+    },
+    {
+      "taskId": "synth-1",
+      "role": "synthesizer",
+      "objective": "Prepare concise changelog",
+      "inputs": ["docs patch"],
+      "expectedOutputs": ["summary"],
+      "verificationRequired": ["gate references present"]
+    }
+  ],
+  "childResults": [
+    {
+      "taskId": "research-1",
+      "status": "done",
+      "summary": "Found one stale docs reference candidate.",
+      "findings": [
+        {
+          "id": "finding-docs-status-drift",
+          "claim": "README status language may be stale after runtime stub additions.",
+          "evidence": ["README.md:30", "PROJECT_STATUS.md:34"],
+          "confidence": "high",
+          "severity": "low",
+          "recommendedAction": "accept"
+        }
+      ],
+      "blockers": [],
+      "assumptions": []
+    }
+  ],
+  "findingDecisions": [
+    {
+      "findingId": "finding-docs-status-drift",
+      "decision": "accepted",
+      "reason": "Evidence ties the docs claim to concrete project status drift.",
+      "decider": "orchestrator",
+      "evidenceReviewed": ["README.md:30", "PROJECT_STATUS.md:34"]
+    }
+  ]
+}

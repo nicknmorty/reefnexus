@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "reefrelay-archive-manifest@0.1.0",
+  "id": "phase-4-cleanup-sample",
+  "runId": "lite-command-audit-docs-for-stale-roadmap-items",
+  "createdAt": "2026-05-12T23:00:00.000Z",
+  "entries": [
+    {
+      "id": "archive-roadmap-draft",
+      "source": "docs/ROADMAP.md",
+      "archive": "runs/phase-4/archive/docs/ROADMAP.before-lite-runtime.md",
+      "action": "copied",
+      "reason": "Preserve roadmap state before mutation-heavy hardening follow-up.",
+      "producerTaskId": "orchestrator",
+      "checksum": "sha256:fixture"
+    },
+    {
+      "id": "quarantine-stale-note",
+      "source": "memory/daily/example-stale.md",
+      "archive": "memory/archive/example-stale.md",
+      "action": "quarantined",
+      "reason": "Example cleanup candidate for archive-manifest schema coverage.",
+      "producerTaskId": "orchestrator"
+    }
+  ]
+}

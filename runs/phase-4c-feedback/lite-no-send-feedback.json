@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "reefrelay-quality-feedback@0.1.0",
+  "generatedAt": "2026-05-12T23:59:00.000Z",
+  "source": {
+    "type": "run",
+    "path": "runs/phase-4b-metrics/lite-no-send-run.json"
+  },
+  "advisoryOnly": true,
+  "events": [
+    {
+      "schemaVersion": "reefrelay-quality-feedback@0.1.0",
+      "id": "qf-lite-command-audit-docs-for-blocked-observability-behavior-lite-audit-blocked-ch",
+      "createdAt": "2026-05-12T23:59:00.000Z",
+      "trigger": "child-blocked",
+      "severity": "medium",
+      "sourceRun": {
+        "runId": "lite-command-audit-docs-for-blocked-observability-behavior",
+        "path": "runs/phase-4b-metrics/lite-no-send-run.json",
+        "mode": "lite",
+        "status": "blocked",
+        "sendDecision": "no-send"
+      },
+      "affected": {
+        "lane": "reviewer",
+        "taskId": "lite-audit",
+        "recipe": "lite-command"
+      },
+      "evidence": [
+        "Deterministic blocked scenario requires orchestrator follow-up or heavier workflow."
+      ],
+      "recommendedRepair": "Resolve blocker details or convert the run to an explicit no-send/blocker report; do not send normal final output until verification is unblocked.",
+      "regressionCandidate": true,
+      "advisoryOnly": true,
+      "routingPolicyChange": null,
+      "gatePolicyChange": null
+    },
+    {
+      "schemaVersion": "reefrelay-quality-feedback@0.1.0",
+      "id": "qf-lite-command-audit-docs-for-blocked-observability-behavior-no-send",
+      "createdAt": "2026-05-12T23:59:00.000Z",
+      "trigger": "no-send",
+      "severity": "medium",
+      "sourceRun": {
+        "runId": "lite-command-audit-docs-for-blocked-observability-behavior",
+        "path": "runs/phase-4b-metrics/lite-no-send-run.json",
+        "mode": "lite",
+        "status": "blocked",
+        "sendDecision": "no-send"
+      },
+      "affected": {
+        "lane": "orchestrator",
+        "taskId": null,
+        "recipe": "lite-command"
+      },
+      "evidence": [
+        "Lite synthesis is no-send because an upstream gate is blocked.",
+        "lite-audit: Deterministic blocked scenario requires orchestrator follow-up or heavier workflow."
+      ],
+      "recommendedRepair": "Review no-send reason, repair or escalate blocked lanes, and keep this feedback advisory until an operator chooses a policy change.",
+      "regressionCandidate": false,
+      "advisoryOnly": true,
+      "routingPolicyChange": null,
+      "gatePolicyChange": null
+    }
+  ]
+}

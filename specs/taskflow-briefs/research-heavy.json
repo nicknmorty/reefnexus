@@ -1,0 +1,96 @@
+{
+  "id": "research-heavy",
+  "goal": "Research a source-sensitive topic with freshness, citation, and quality gates",
+  "pattern": "hierarchical",
+  "riskClass": "normal",
+  "ownerSessionKey": "session:reefnexus-dev",
+  "routing": {
+    "routeOutcome": "selected",
+    "confidence": 0.9,
+    "selectedLane": "research-heavy",
+    "reasons": [
+      "Task requires source discovery, cross-checking, citation audit, and synthesis."
+    ]
+  },
+  "contracts": [
+    {
+      "taskId": "question-framing",
+      "role": "researcher",
+      "objective": "Define research scope, freshness requirement, source policy, and acceptance criteria.",
+      "boundaries": ["no final claims", "do not browse private data unless explicitly in scope"],
+      "inputs": ["user question", "target audience", "freshness requirement"],
+      "expectedOutputs": ["research scope", "source policy", "acceptance criteria"],
+      "verificationRequired": ["explicit freshness requirement", "source allow/deny guidance"],
+      "escalationCondition": "Research scope or source policy is ambiguous."
+    },
+    {
+      "taskId": "source-discovery",
+      "role": "researcher",
+      "objective": "Find candidate sources and classify source type, date/freshness, and relevance.",
+      "boundaries": ["prefer primary sources", "flag weak SEO/listicle sources"],
+      "inputs": ["research scope", "source policy"],
+      "expectedOutputs": ["source list with quality notes"],
+      "verificationRequired": ["URL/title/date/source type for each key source"],
+      "escalationCondition": "Sources are unavailable, stale, paywalled, or contradictory.",
+      "artifactTargets": ["report"]
+    },
+    {
+      "taskId": "cross-check",
+      "role": "reviewer",
+      "objective": "Verify important claims against independent evidence and flag conflicts.",
+      "boundaries": ["no unsupported synthesis", "surface uncertainty clearly"],
+      "inputs": ["source list", "candidate claims"],
+      "expectedOutputs": ["claim-to-evidence matrix", "conflict notes"],
+      "verificationRequired": ["every key claim maps to evidence"],
+      "escalationCondition": "Material claims conflict or cannot be verified."
+    },
+    {
+      "taskId": "citation-quality",
+      "role": "reviewer",
+      "objective": "Audit citation usefulness, source quality, freshness, and unsupported claims.",
+      "boundaries": ["read-only quality review", "do not add claims without evidence"],
+      "inputs": ["source list", "draft synthesis", "claim-to-evidence matrix"],
+      "expectedOutputs": ["citation quality findings"],
+      "verificationRequired": ["citation coverage and freshness notes"],
+      "escalationCondition": "Final synthesis overstates certainty or lacks citation support."
+    },
+    {
+      "taskId": "synthesis",
+      "role": "synthesizer",
+      "objective": "Draft final answer using accepted evidence only.",
+      "boundaries": ["no raw worker output", "no claims without citations/evidence"],
+      "inputs": ["accepted findings", "citation quality findings", "gate records"],
+      "expectedOutputs": ["final cited synthesis"],
+      "verificationRequired": ["accepted finding IDs", "evidence references"],
+      "escalationCondition": "Accepted evidence is too thin to answer confidently."
+    }
+  ],
+  "childResults": [
+    {
+      "taskId": "question-framing",
+      "status": "done",
+      "summary": "Research scope and source policy were established before source discovery.",
+      "findings": [
+        {
+          "id": "finding-research-source-quality",
+          "claim": "Research-heavy work requires freshness, source-quality, citation, and synthesis gates.",
+          "evidence": ["docs/WORKFLOW_RECIPE_RESEARCH_HEAVY.md:1", "docs/ROADMAP.md:36"],
+          "confidence": "high",
+          "severity": "low",
+          "recommendedAction": "accept"
+        }
+      ],
+      "blockers": [],
+      "assumptions": []
+    }
+  ],
+  "findingDecisions": [
+    {
+      "findingId": "finding-research-source-quality",
+      "decision": "accepted",
+      "reason": "The recipe and roadmap identify research-heavy source-quality gates as an explicit Phase 4 target.",
+      "decider": "orchestrator",
+      "evidenceReviewed": ["docs/WORKFLOW_RECIPE_RESEARCH_HEAVY.md:1", "docs/ROADMAP.md:36"]
+    }
+  ]
+}

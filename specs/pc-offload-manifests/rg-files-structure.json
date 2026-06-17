@@ -1,0 +1,10 @@
+{
+  "taskId": "public-reefrelay-rg-files-structure",
+  "autoSafe": {
+    "lane": "auto-safe"
+  },
+  "command": {
+    "family": "rg-files",
+    "argv": ["rg", "--files"]
+  }
+}

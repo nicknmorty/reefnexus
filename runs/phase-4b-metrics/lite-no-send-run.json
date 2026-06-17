@@ -1,0 +1,253 @@
+{
+  "schemaVersion": "0.1.0",
+  "runId": "lite-command-audit-docs-for-blocked-observability-behavior",
+  "mode": "lite",
+  "createdAt": "2026-05-12T23:45:00.000Z",
+  "updatedAt": "2026-05-12T23:45:00.000Z",
+  "goal": "audit docs for blocked observability behavior",
+  "pattern": "concurrent",
+  "riskClass": "normal",
+  "status": "blocked",
+  "routing": {
+    "routeOutcome": "selected",
+    "confidence": 0.75,
+    "selectedLane": "lite-command",
+    "fallbackUsed": false,
+    "clarificationAsked": false,
+    "escalationTriggered": false
+  },
+  "lite": {
+    "durableTaskflow": false,
+    "ownerSessionKey": "current",
+    "mutationPolicy": "orchestrator-only",
+    "maxChildLanes": 4,
+    "childResultSchema": "reefrelay-lite-child-result@0.1.0",
+    "findingDecisionStates": [
+      "accepted",
+      "rejected",
+      "deferred"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "lite-audit",
+      "role": "reviewer",
+      "objective": "audit docs for blocked observability behavior",
+      "scope": [
+        "operator-supplied goal"
+      ],
+      "mode": "read-only",
+      "mutationAllowed": false,
+      "outputs": [
+        "child result packet"
+      ],
+      "status": "blocked",
+      "owner": "reefrelay-lite",
+      "evidence": [
+        "raw-lite-audit"
+      ],
+      "verification": {
+        "checks": [
+          "evidence-backed findings"
+        ],
+        "result": "failed"
+      },
+      "resultSchema": "reefrelay-lite-child-result@0.1.0",
+      "startedAt": "2026-05-12T23:45:00.000Z",
+      "endedAt": "2026-05-12T23:45:00.000Z"
+    }
+  ],
+  "childResults": [
+    {
+      "taskId": "lite-audit",
+      "status": "blocked",
+      "summary": "Lite lane blocked before producing an evidence-backed finding.",
+      "findings": [],
+      "blockers": [
+        "Deterministic blocked scenario requires orchestrator follow-up or heavier workflow."
+      ],
+      "assumptions": [
+        "This is a fixture for blocked lite runtime behavior."
+      ],
+      "rawArtifact": "raw-lite-audit",
+      "normalizedAt": "2026-05-12T23:45:00.000Z"
+    }
+  ],
+  "findingDecisions": [],
+  "gates": {
+    "safety": {
+      "result": "passed",
+      "notes": "Lite runtime preserved read-only child lanes and orchestrator-owned mutation boundaries.",
+      "evidence": []
+    },
+    "verification": {
+      "result": "blocked",
+      "notes": "Lite verification is blocked by child blocker/failure state or missing accepted evidence.",
+      "evidence": []
+    },
+    "finalAcceptance": {
+      "result": "passed",
+      "notes": "Lite synthesis is no-send because an upstream gate is blocked.",
+      "evidence": []
+    }
+  },
+  "artifacts": [
+    {
+      "id": "raw-lite-audit",
+      "type": "lite-child-result-raw",
+      "path": "runs/phase-4b-metrics/artifacts/lite-no-send/lite-audit.raw.json",
+      "producerTaskId": "lite-audit",
+      "createdAt": "2026-05-12T23:45:00.000Z"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "lite-normalize-lite-audit",
+      "decision": "accepted",
+      "reason": "Structured lite child output matched child-result schema.",
+      "timestamp": "2026-05-12T23:45:00.000Z",
+      "taskId": "lite-audit",
+      "artifactId": "raw-lite-audit"
+    }
+  ],
+  "blockers": [
+    {
+      "taskId": "lite-audit",
+      "blocker": "Deterministic blocked scenario requires orchestrator follow-up or heavier workflow."
+    }
+  ],
+  "gateRecords": [
+    {
+      "runId": "lite-command-audit-docs-for-blocked-observability-behavior",
+      "gate": "safety",
+      "result": "passed",
+      "decision": "continue",
+      "reason": "Lite runtime preserved read-only child lanes and orchestrator-owned mutation boundaries.",
+      "evidence": [],
+      "requiredFixes": [],
+      "owner": "orchestrator",
+      "timestamp": "2026-05-12T23:45:00.000Z"
+    },
+    {
+      "runId": "lite-command-audit-docs-for-blocked-observability-behavior",
+      "gate": "verification",
+      "result": "blocked",
+      "decision": "no-send",
+      "reason": "Lite verification is blocked by child blocker/failure state or missing accepted evidence.",
+      "evidence": [],
+      "requiredFixes": [
+        "lite-audit: Deterministic blocked scenario requires orchestrator follow-up or heavier workflow."
+      ],
+      "owner": "orchestrator",
+      "timestamp": "2026-05-12T23:45:00.000Z"
+    },
+    {
+      "runId": "lite-command-audit-docs-for-blocked-observability-behavior",
+      "gate": "finalAcceptance",
+      "result": "passed",
+      "decision": "no-send",
+      "reason": "Lite synthesis is no-send because an upstream gate is blocked.",
+      "evidence": [],
+      "requiredFixes": [
+        "lite-audit: Deterministic blocked scenario requires orchestrator follow-up or heavier workflow."
+      ],
+      "owner": "orchestrator",
+      "timestamp": "2026-05-12T23:45:00.000Z"
+    }
+  ],
+  "finalDecision": {
+    "sendDecision": "no-send",
+    "reason": "Lite synthesis is no-send because an upstream gate is blocked.",
+    "persistedAt": "2026-05-12T23:45:00.000Z"
+  },
+  "finalSynthesis": {
+    "runId": "lite-command-audit-docs-for-blocked-observability-behavior",
+    "createdAt": "2026-05-12T23:45:00.000Z",
+    "summary": "Lite ReefRelay produced a no-send synthesis for audit docs for blocked observability behavior because one or more gates were blocked.",
+    "whatChangedOrFound": [],
+    "evidenceReferences": [],
+    "caveatsOrBlockers": [
+      "lite-audit: Deterministic blocked scenario requires orchestrator follow-up or heavier workflow."
+    ],
+    "sendDecision": "no-send",
+    "decisionReason": "Lite synthesis is no-send because an upstream gate is blocked."
+  },
+  "metrics": {
+    "schemaVersion": "reefrelay-run-metrics@0.1.0",
+    "runId": "lite-command-audit-docs-for-blocked-observability-behavior",
+    "collectedAt": "2026-05-12T23:45:00.000Z",
+    "mode": "lite",
+    "status": "blocked",
+    "latency": {
+      "runMs": 0,
+      "taskMs": {
+        "lite-audit": 0
+      }
+    },
+    "tasks": {
+      "total": 1,
+      "byStatus": {
+        "pending": 0,
+        "running": 0,
+        "blocked": 1,
+        "done": 0,
+        "failed": 0
+      },
+      "childResults": {
+        "total": 1,
+        "byStatus": {
+          "done": 0,
+          "blocked": 1,
+          "failed": 0
+        }
+      }
+    },
+    "blockers": {
+      "total": 1,
+      "byTask": {
+        "lite-audit": 1
+      }
+    },
+    "failures": {
+      "failedTaskCount": 0,
+      "blockedTaskCount": 1,
+      "failedChildCount": 0,
+      "blockedChildCount": 1,
+      "noSend": true
+    },
+    "retries": {
+      "total": 0,
+      "sources": []
+    },
+    "artifacts": {
+      "total": 1,
+      "byType": {
+        "lite-child-result-raw": 1
+      }
+    },
+    "findings": {
+      "total": 0,
+      "decisions": {
+        "accepted": 0,
+        "rejected": 0,
+        "deferred": 0
+      },
+      "evidenceReferenceCount": 0
+    },
+    "gates": {
+      "total": 3,
+      "byResult": {
+        "passed": 2,
+        "blocked": 1
+      },
+      "byDecision": {
+        "continue": 1,
+        "no-send": 2
+      }
+    },
+    "costHints": {
+      "available": false,
+      "reason": "No provider usage or cost metadata persisted on this deterministic run artifact."
+    }
+  }
+}

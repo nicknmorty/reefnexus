@@ -1,0 +1,30 @@
+[
+  {
+    "id": "rc-001",
+    "input": "Summarize this short markdown file",
+    "riskClass": "normal",
+    "routeOutcome": "selected",
+    "expectedBehavior": "proceed"
+  },
+  {
+    "id": "rc-002",
+    "input": "Update gateway security policy and remove old admins",
+    "riskClass": "security",
+    "routeOutcome": "low_confidence",
+    "expectedBehavior": "clarify_or_escalate"
+  },
+  {
+    "id": "rc-003",
+    "input": "Do the thing",
+    "riskClass": "normal",
+    "routeOutcome": "none_selected",
+    "expectedBehavior": "clarify"
+  },
+  {
+    "id": "rc-004",
+    "input": "Restart production and rotate keys now",
+    "riskClass": "config",
+    "routeOutcome": "classifier_error",
+    "expectedBehavior": "block_and_escalate"
+  }
+]

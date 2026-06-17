@@ -1,0 +1,220 @@
+{
+  "schemaVersion": "0.1.0",
+  "runId": "lite-command-audit-docs-for-stale-roadmap-items",
+  "mode": "lite",
+  "createdAt": "2026-05-12T22:30:00.000Z",
+  "updatedAt": "2026-05-12T22:30:00.000Z",
+  "goal": "audit docs for stale roadmap items",
+  "pattern": "concurrent",
+  "riskClass": "normal",
+  "status": "completed",
+  "routing": {
+    "routeOutcome": "selected",
+    "confidence": 0.75,
+    "selectedLane": "lite-command",
+    "fallbackUsed": false,
+    "clarificationAsked": false,
+    "escalationTriggered": false
+  },
+  "lite": {
+    "durableTaskflow": false,
+    "ownerSessionKey": "current",
+    "mutationPolicy": "none",
+    "maxChildLanes": 4,
+    "childResultSchema": "reefrelay-lite-child-result@0.1.0",
+    "findingDecisionStates": [
+      "accepted",
+      "rejected",
+      "deferred"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "lite-audit",
+      "role": "reviewer",
+      "objective": "audit docs for stale roadmap items",
+      "scope": [
+        "operator-supplied goal"
+      ],
+      "mode": "read-only",
+      "mutationAllowed": false,
+      "outputs": [
+        "child result packet"
+      ],
+      "status": "done",
+      "owner": "reefrelay-lite",
+      "evidence": [
+        "raw-lite-audit"
+      ],
+      "verification": {
+        "checks": [
+          "evidence-backed findings"
+        ],
+        "result": "passed"
+      },
+      "resultSchema": "reefrelay-lite-child-result@0.1.0",
+      "startedAt": "2026-05-12T22:30:00.000Z",
+      "endedAt": "2026-05-12T22:30:00.000Z"
+    }
+  ],
+  "childResults": [
+    {
+      "taskId": "lite-audit",
+      "status": "done",
+      "summary": "reviewer lane completed bounded lite dispatch for lite-command-audit-docs-for-stale-roadmap-items.",
+      "findings": [
+        {
+          "id": "lite-audit-finding-1",
+          "claim": "lite-audit completed read-only lane for audit docs for stale roadmap items",
+          "evidence": [
+            "task:lite-audit:objective",
+            "task:lite-audit:scope"
+          ],
+          "confidence": "high",
+          "risk": "low",
+          "recommendedAction": "accept",
+          "doNotMutate": true,
+          "observedAt": "2026-05-12T22:30:00.000Z"
+        }
+      ],
+      "blockers": [],
+      "assumptions": [
+        "Deterministic lite runtime used a mock child runner with real child-result contract shape."
+      ],
+      "rawArtifact": "raw-lite-audit",
+      "normalizedAt": "2026-05-12T22:30:00.000Z"
+    }
+  ],
+  "findingDecisions": [
+    {
+      "findingId": "lite-audit-finding-1",
+      "taskId": "lite-audit",
+      "decision": "accepted",
+      "reason": "Orchestrator followed child recommendation accept.",
+      "decider": "orchestrator",
+      "evidenceReviewed": [
+        "task:lite-audit:objective",
+        "task:lite-audit:scope"
+      ],
+      "timestamp": "2026-05-12T22:30:00.000Z"
+    }
+  ],
+  "gates": {
+    "safety": {
+      "result": "passed",
+      "notes": "Lite runtime preserved read-only child lanes and orchestrator-owned mutation boundaries.",
+      "evidence": [
+        "task:lite-audit:objective",
+        "task:lite-audit:scope"
+      ]
+    },
+    "verification": {
+      "result": "passed",
+      "notes": "Accepted lite findings have evidence and all child lanes completed.",
+      "evidence": [
+        "task:lite-audit:objective",
+        "task:lite-audit:scope"
+      ]
+    },
+    "finalAcceptance": {
+      "result": "passed",
+      "notes": "Lite synthesis is evidence-backed and user-ready.",
+      "evidence": [
+        "task:lite-audit:objective",
+        "task:lite-audit:scope"
+      ]
+    }
+  },
+  "artifacts": [
+    {
+      "id": "raw-lite-audit",
+      "type": "lite-child-result-raw",
+      "path": "runs/phase-4/artifacts/lite-audit.raw.json",
+      "producerTaskId": "lite-audit",
+      "createdAt": "2026-05-12T22:30:00.000Z"
+    },
+    {
+      "id": "lite-final-synthesis",
+      "type": "report",
+      "path": "/path/to/reefnexus/runs/phase-4/lite-runtime-synthesis.md",
+      "producerTaskId": "orchestrator",
+      "createdAt": "2026-05-12T22:30:00.000Z"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "lite-normalize-lite-audit",
+      "decision": "accepted",
+      "reason": "Structured lite child output matched child-result schema.",
+      "timestamp": "2026-05-12T22:30:00.000Z",
+      "taskId": "lite-audit",
+      "artifactId": "raw-lite-audit"
+    }
+  ],
+  "blockers": [],
+  "gateRecords": [
+    {
+      "runId": "lite-command-audit-docs-for-stale-roadmap-items",
+      "gate": "safety",
+      "result": "passed",
+      "decision": "continue",
+      "reason": "Lite runtime preserved read-only child lanes and orchestrator-owned mutation boundaries.",
+      "evidence": [
+        "task:lite-audit:objective",
+        "task:lite-audit:scope"
+      ],
+      "requiredFixes": [],
+      "owner": "orchestrator",
+      "timestamp": "2026-05-12T22:30:00.000Z"
+    },
+    {
+      "runId": "lite-command-audit-docs-for-stale-roadmap-items",
+      "gate": "verification",
+      "result": "passed",
+      "decision": "continue",
+      "reason": "Accepted lite findings have evidence and all child lanes completed.",
+      "evidence": [
+        "task:lite-audit:objective",
+        "task:lite-audit:scope"
+      ],
+      "requiredFixes": [],
+      "owner": "orchestrator",
+      "timestamp": "2026-05-12T22:30:00.000Z"
+    },
+    {
+      "runId": "lite-command-audit-docs-for-stale-roadmap-items",
+      "gate": "finalAcceptance",
+      "result": "passed",
+      "decision": "send",
+      "reason": "Lite synthesis is evidence-backed and user-ready.",
+      "evidence": [
+        "task:lite-audit:objective",
+        "task:lite-audit:scope"
+      ],
+      "requiredFixes": [],
+      "owner": "orchestrator",
+      "timestamp": "2026-05-12T22:30:00.000Z"
+    }
+  ],
+  "finalDecision": {
+    "sendDecision": "send",
+    "reason": "Lite synthesis is evidence-backed and user-ready.",
+    "persistedAt": "2026-05-12T22:30:00.000Z"
+  },
+  "finalSynthesis": {
+    "runId": "lite-command-audit-docs-for-stale-roadmap-items",
+    "createdAt": "2026-05-12T22:30:00.000Z",
+    "summary": "Lite ReefRelay completed audit docs for stale roadmap items with evidence-backed accepted findings.",
+    "whatChangedOrFound": [
+      "lite-audit completed read-only lane for audit docs for stale roadmap items"
+    ],
+    "evidenceReferences": [
+      "task:lite-audit:objective",
+      "task:lite-audit:scope"
+    ],
+    "caveatsOrBlockers": [],
+    "sendDecision": "send",
+    "decisionReason": "Lite synthesis is evidence-backed and user-ready.",
+    "artifactId": "lite-final-synthesis"
+  }
+}

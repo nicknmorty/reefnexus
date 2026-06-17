@@ -1,0 +1,172 @@
+{
+  "schemaVersion": "0.1.0",
+  "runId": "run-normal-docs-pass",
+  "mode": "full",
+  "createdAt": "2026-05-12T00:00:00.000Z",
+  "updatedAt": "2026-05-12T00:00:00.000Z",
+  "goal": "Update docs index and verify links",
+  "pattern": "sequential",
+  "riskClass": "normal",
+  "status": "queued",
+  "routing": {
+    "routeOutcome": "selected",
+    "confidence": 0.91,
+    "selectedLane": "docs",
+    "fallbackUsed": false,
+    "clarificationAsked": false,
+    "escalationTriggered": false,
+    "reasons": [],
+    "operatorOverride": false,
+    "overrideSource": null,
+    "autoSelection": null
+  },
+  "taskflow": {
+    "jobId": "run-normal-docs-pass",
+    "ownerSessionKey": "session:reefnexus-dev",
+    "lifecycle": "created",
+    "revision": 1,
+    "childTaskIds": [
+      "research-1",
+      "implement-1",
+      "synth-1"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "research-1",
+      "role": "researcher",
+      "objective": "Find missing links and stale references",
+      "boundaries": [],
+      "inputs": [
+        "README.md",
+        "docs/"
+      ],
+      "outputs": [
+        "issue list"
+      ],
+      "timeoutOrDeadline": null,
+      "escalationCondition": null,
+      "artifactTargets": [],
+      "status": "pending",
+      "owner": "reefrelay",
+      "startedAt": null,
+      "endedAt": null,
+      "evidence": [],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "manual link check"
+        ],
+        "result": "pending"
+      }
+    },
+    {
+      "id": "implement-1",
+      "role": "implementer",
+      "objective": "Fix stale links",
+      "boundaries": [],
+      "inputs": [
+        "issue list"
+      ],
+      "outputs": [
+        "docs patch"
+      ],
+      "timeoutOrDeadline": null,
+      "escalationCondition": null,
+      "artifactTargets": [],
+      "status": "pending",
+      "owner": "reefrelay",
+      "startedAt": null,
+      "endedAt": null,
+      "evidence": [],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "npm test"
+        ],
+        "result": "pending"
+      }
+    },
+    {
+      "id": "synth-1",
+      "role": "synthesizer",
+      "objective": "Prepare concise changelog",
+      "boundaries": [],
+      "inputs": [
+        "docs patch"
+      ],
+      "outputs": [
+        "summary"
+      ],
+      "timeoutOrDeadline": null,
+      "escalationCondition": null,
+      "artifactTargets": [],
+      "status": "pending",
+      "owner": "reefrelay",
+      "startedAt": null,
+      "endedAt": null,
+      "evidence": [],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "gate references present"
+        ],
+        "result": "pending"
+      }
+    }
+  ],
+  "childResults": [
+    {
+      "taskId": "research-1",
+      "status": "done",
+      "summary": "Found one stale docs reference candidate.",
+      "findings": [
+        {
+          "id": "finding-docs-status-drift",
+          "claim": "README status language may be stale after runtime stub additions.",
+          "evidence": [
+            "README.md:30",
+            "PROJECT_STATUS.md:34"
+          ],
+          "confidence": "high",
+          "severity": "low",
+          "recommendedAction": "accept"
+        }
+      ],
+      "blockers": [],
+      "assumptions": []
+    }
+  ],
+  "findingDecisions": [
+    {
+      "findingId": "finding-docs-status-drift",
+      "decision": "accepted",
+      "reason": "Evidence ties the docs claim to concrete project status drift.",
+      "decider": "orchestrator",
+      "evidenceReviewed": [
+        "README.md:30",
+        "PROJECT_STATUS.md:34"
+      ]
+    }
+  ],
+  "gates": {
+    "safety": {
+      "result": "pending",
+      "notes": ""
+    },
+    "verification": {
+      "result": "pending",
+      "notes": ""
+    },
+    "finalAcceptance": {
+      "result": "pending",
+      "notes": ""
+    }
+  },
+  "artifacts": [],
+  "decisions": [],
+  "blockers": []
+}

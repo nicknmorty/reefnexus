@@ -1,0 +1,12 @@
+{
+  "name": "reef-relay-openclaw-plugin",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Runtime-only OpenClaw plugin package for ReefRelay native command registration.",
+  "openclaw": {
+    "extensions": [
+      "./index.mjs"
+    ]
+  },
+  "license": "MIT"
+}

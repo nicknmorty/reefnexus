@@ -1,0 +1,11 @@
+flowchart TD
+    A[Intake] --> B[Manager Loop Start]
+    B --> C[Select Next Action]
+    C --> D[Delegate Worker Task]
+    D --> E[Checkpoint + State Update]
+    E --> F{Progress Adequate?}
+    F -->|Yes| G{Gates Passed?}
+    F -->|No| H[Replan / Reroute]
+    H --> C
+    G -->|Yes| I[Finalize]
+    G -->|No| J[Repair / Escalate]

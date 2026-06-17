@@ -1,0 +1,9 @@
+flowchart LR
+    A[Intake & Classify] --> B[Task 1: Researcher]
+    B --> C[Task 2: Implementer]
+    C --> D[Task 3: Reviewer]
+    D --> E[Task 4: Tester]
+    E --> F[Task 5: Synthesizer]
+    F --> G{Gates Passed?}
+    G -->|Yes| H[Final Response]
+    G -->|No| I[Blocked + Repair Path]

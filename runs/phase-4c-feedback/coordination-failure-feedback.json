@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "reefrelay-quality-feedback@0.1.0",
+  "generatedAt": "2026-05-12T23:59:00.000Z",
+  "source": {
+    "type": "coordination-cases",
+    "path": "specs/coordination-failure-cases.json"
+  },
+  "advisoryOnly": true,
+  "events": [
+    {
+      "schemaVersion": "reefrelay-quality-feedback@0.1.0",
+      "id": "qf-stale-evidence-reference-stale-evidence",
+      "createdAt": "2026-05-12T23:59:00.000Z",
+      "trigger": "stale-evidence",
+      "severity": "high",
+      "sourceRun": {
+        "runId": "failure-stale-evidence",
+        "path": "specs/coordination-failure-cases.json",
+        "mode": "full",
+        "status": "running",
+        "sendDecision": null
+      },
+      "affected": {
+        "lane": "orchestrator",
+        "taskId": null,
+        "recipe": "reject-stale-evidence"
+      },
+      "evidence": [
+        "stale-evidence-reference",
+        "A finding decision reviews evidence that is not attached to the underlying finding."
+      ],
+      "recommendedRepair": "Reject decisions that review evidence not attached to the underlying finding; require fresh evidence before acceptance.",
+      "regressionCandidate": true,
+      "advisoryOnly": true,
+      "routingPolicyChange": null,
+      "gatePolicyChange": null
+    },
+    {
+      "schemaVersion": "reefrelay-quality-feedback@0.1.0",
+      "id": "qf-weak-worker-output-weak-worker-output",
+      "createdAt": "2026-05-12T23:59:00.000Z",
+      "trigger": "weak-worker-output",
+      "severity": "medium",
+      "sourceRun": {
+        "runId": "failure-weak-worker-output",
+        "path": "specs/coordination-failure-cases.json",
+        "mode": "full",
+        "status": "running",
+        "sendDecision": null
+      },
+      "affected": {
+        "lane": "orchestrator",
+        "taskId": null,
+        "recipe": "reject-unsupported-finding"
+      },
+      "evidence": [
+        "weak-worker-output",
+        "A done child result contains a vague finding without evidence."
+      ],
+      "recommendedRepair": "Reject unsupported child findings and require concrete evidence references before final acceptance.",
+      "regressionCandidate": true,
+      "advisoryOnly": true,
+      "routingPolicyChange": null,
+      "gatePolicyChange": null
+    },
+    {
+      "schemaVersion": "reefrelay-quality-feedback@0.1.0",
+      "id": "qf-blocked-lane-final-send-unsafe-send-attempt",
+      "createdAt": "2026-05-12T23:59:00.000Z",
+      "trigger": "unsafe-send-attempt",
+      "severity": "critical",
+      "sourceRun": {
+        "runId": "failure-blocked-lane",
+        "path": "specs/coordination-failure-cases.json",
+        "mode": "full",
+        "status": "blocked",
+        "sendDecision": "send"
+      },
+      "affected": {
+        "lane": "orchestrator",
+        "taskId": null,
+        "recipe": "force-no-send"
+      },
+      "evidence": [
+        "blocked-lane-final-send",
+        "A blocked child lane must force no-send until repaired or escalated."
+      ],
+      "recommendedRepair": "Force no-send when any child lane is blocked or failed, then repair or escalate before normal final output.",
+      "regressionCandidate": true,
+      "advisoryOnly": true,
+      "routingPolicyChange": null,
+      "gatePolicyChange": null
+    },
+    {
+      "schemaVersion": "reefrelay-quality-feedback@0.1.0",
+      "id": "qf-conflicting-findings-conflicting-findings",
+      "createdAt": "2026-05-12T23:59:00.000Z",
+      "trigger": "conflicting-findings",
+      "severity": "high",
+      "sourceRun": {
+        "runId": "failure-conflicting-findings",
+        "path": "specs/coordination-failure-cases.json",
+        "mode": "full",
+        "status": "running",
+        "sendDecision": null
+      },
+      "affected": {
+        "lane": "orchestrator",
+        "taskId": null,
+        "recipe": "defer-conflict"
+      },
+      "evidence": [
+        "conflicting-findings",
+        "Two accepted findings make conflicting claims about the same target."
+      ],
+      "recommendedRepair": "Defer conflicting accepted findings until the orchestrator resolves the target verdict with reviewed evidence.",
+      "regressionCandidate": true,
+      "advisoryOnly": true,
+      "routingPolicyChange": null,
+      "gatePolicyChange": null
+    },
+    {
+      "schemaVersion": "reefrelay-quality-feedback@0.1.0",
+      "id": "qf-malformed-artifact-malformed-artifact",
+      "createdAt": "2026-05-12T23:59:00.000Z",
+      "trigger": "malformed-artifact",
+      "severity": "medium",
+      "sourceRun": {
+        "runId": "failure-malformed-artifact",
+        "path": "specs/coordination-failure-cases.json",
+        "mode": "full",
+        "status": "running",
+        "sendDecision": null
+      },
+      "affected": {
+        "lane": "orchestrator",
+        "taskId": null,
+        "recipe": "reject-malformed-artifact"
+      },
+      "evidence": [
+        "malformed-artifact",
+        "Artifact pointers must include id, type, path, producer task, and created timestamp."
+      ],
+      "recommendedRepair": "Reject malformed artifact pointers and require id, type, path, producerTaskId, and createdAt before gate evidence can rely on them.",
+      "regressionCandidate": true,
+      "advisoryOnly": true,
+      "routingPolicyChange": null,
+      "gatePolicyChange": null
+    }
+  ]
+}

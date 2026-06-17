@@ -1,0 +1,10 @@
+flowchart LR
+    A[Intake] --> B[Primary Lane]
+    B --> C{Confidence / Fit?}
+    C -->|High| D[Continue Current Lane]
+    C -->|Low| E[Handoff Packet]
+    E --> F[Specialist Lane]
+    F --> G[Verification]
+    G --> H{Gates Passed?}
+    H -->|Yes| I[Final Response]
+    H -->|No| J[Blocked + Repair Path]

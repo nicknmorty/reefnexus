@@ -1,0 +1,38 @@
+{
+  "id": "incident-triage",
+  "goal": "Triaging intermittent 5xx spikes",
+  "pattern": "concurrent",
+  "riskClass": "sensitive",
+  "ownerSessionKey": "session:incident-room",
+  "routing": {
+    "routeOutcome": "selected",
+    "confidence": 0.83,
+    "selectedLane": "incident"
+  },
+  "contracts": [
+    {
+      "taskId": "telemetry-1",
+      "role": "researcher",
+      "objective": "Collect logs and error-rate windows",
+      "inputs": ["monitoring dashboards"],
+      "expectedOutputs": ["telemetry snapshot"],
+      "verificationRequired": ["source timestamps included"]
+    },
+    {
+      "taskId": "changes-1",
+      "role": "reviewer",
+      "objective": "Review recent deploy and config changes",
+      "inputs": ["git history", "deploy logs"],
+      "expectedOutputs": ["change-risk table"],
+      "verificationRequired": ["suspect commits linked"]
+    },
+    {
+      "taskId": "test-1",
+      "role": "tester",
+      "objective": "Run focused health checks",
+      "inputs": ["candidate hypotheses"],
+      "expectedOutputs": ["check results"],
+      "verificationRequired": ["pass/fail output"]
+    }
+  ]
+}

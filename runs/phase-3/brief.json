@@ -1,0 +1,155 @@
+{
+  "id": "auto-implement-reefnexus-mvp-phase-3-gates-final-synthesis-do",
+  "goal": "Implement ReefNexus MVP Phase 3 gates, final synthesis, dogfood documentation, tests, verification, and repo status updates",
+  "pattern": "hierarchical",
+  "riskClass": "normal",
+  "ownerSessionKey": "session:phase-3-dogfood",
+  "routing": {
+    "routeOutcome": "selected",
+    "confidence": 0.84,
+    "selectedLane": "full-auto",
+    "fallbackUsed": false,
+    "clarificationAsked": false,
+    "escalationTriggered": false,
+    "reasons": [
+      "evidence or verification required",
+      "2 full-mode signal(s)"
+    ]
+  },
+  "contracts": [
+    {
+      "taskId": "intake-plan",
+      "role": "researcher",
+      "objective": "Clarify requirements, constraints, risks, and acceptance criteria for: Implement ReefNexus MVP Phase 3 gates, final synthesis, dogfood documentation, tests, verification, and repo status updates",
+      "boundaries": [
+        "Stay within the request scope",
+        "Do not perform irreversible/external actions without orchestrator approval"
+      ],
+      "inputs": [
+        "operator request",
+        "routing metadata"
+      ],
+      "expectedOutputs": [
+        "scope summary",
+        "risk notes",
+        "acceptance criteria"
+      ],
+      "verificationRequired": [
+        "evidence for every material claim"
+      ],
+      "timeoutOrDeadline": "bounded interactive session",
+      "escalationCondition": "Missing authority, unsafe ambiguity, blocked dependency, or insufficient evidence",
+      "artifactTargets": [],
+      "riskNotes": []
+    },
+    {
+      "taskId": "implementation",
+      "role": "implementer",
+      "objective": "Produce the scoped implementation or change set for: Implement ReefNexus MVP Phase 3 gates, final synthesis, dogfood documentation, tests, verification, and repo status updates",
+      "boundaries": [
+        "Stay within the request scope",
+        "Do not perform irreversible/external actions without orchestrator approval"
+      ],
+      "inputs": [
+        "operator request",
+        "intake-plan output"
+      ],
+      "expectedOutputs": [
+        "patch/artifact summary",
+        "changed files",
+        "implementation notes"
+      ],
+      "verificationRequired": [
+        "diff or artifact references"
+      ],
+      "timeoutOrDeadline": "bounded interactive session",
+      "escalationCondition": "Missing authority, unsafe ambiguity, blocked dependency, or insufficient evidence",
+      "artifactTargets": [],
+      "riskNotes": []
+    },
+    {
+      "taskId": "review",
+      "role": "reviewer",
+      "objective": "Review the implementation for correctness, scope, safety, and maintainability: Implement ReefNexus MVP Phase 3 gates, final synthesis, dogfood documentation, tests, verification, and repo status updates",
+      "boundaries": [
+        "Stay within the request scope",
+        "Do not perform irreversible/external actions without orchestrator approval"
+      ],
+      "inputs": [
+        "implementation output",
+        "acceptance criteria"
+      ],
+      "expectedOutputs": [
+        "review findings",
+        "required fixes",
+        "approval/blocking recommendation"
+      ],
+      "verificationRequired": [
+        "each finding tied to concrete evidence"
+      ],
+      "timeoutOrDeadline": "bounded interactive session",
+      "escalationCondition": "Missing authority, unsafe ambiguity, blocked dependency, or insufficient evidence",
+      "artifactTargets": [],
+      "riskNotes": []
+    },
+    {
+      "taskId": "verification",
+      "role": "tester",
+      "objective": "Run or define the required verification checks for: Implement ReefNexus MVP Phase 3 gates, final synthesis, dogfood documentation, tests, verification, and repo status updates",
+      "boundaries": [
+        "Stay within the request scope",
+        "Do not perform irreversible/external actions without orchestrator approval"
+      ],
+      "inputs": [
+        "operator request",
+        "implementation/review outputs"
+      ],
+      "expectedOutputs": [
+        "test/check report",
+        "pass/fail breakdown"
+      ],
+      "verificationRequired": [
+        "command output or explicit verification evidence"
+      ],
+      "timeoutOrDeadline": "bounded interactive session",
+      "escalationCondition": "Missing authority, unsafe ambiguity, blocked dependency, or insufficient evidence",
+      "artifactTargets": [],
+      "riskNotes": []
+    },
+    {
+      "taskId": "synthesis",
+      "role": "synthesizer",
+      "objective": "Prepare final synthesis only after child results, finding decisions, and gates are reviewed for: Implement ReefNexus MVP Phase 3 gates, final synthesis, dogfood documentation, tests, verification, and repo status updates",
+      "boundaries": [
+        "Stay within the request scope",
+        "Do not perform irreversible/external actions without orchestrator approval"
+      ],
+      "inputs": [
+        "normalized child results",
+        "finding decisions",
+        "gate states"
+      ],
+      "expectedOutputs": [
+        "final synthesis draft with evidence and caveats"
+      ],
+      "verificationRequired": [
+        "safety/verification/final acceptance gates referenced"
+      ],
+      "timeoutOrDeadline": "bounded interactive session",
+      "escalationCondition": "Missing authority, unsafe ambiguity, blocked dependency, or insufficient evidence",
+      "artifactTargets": [],
+      "riskNotes": []
+    }
+  ],
+  "childResults": [],
+  "findingDecisions": [],
+  "decisions": [
+    {
+      "id": "route-selection",
+      "decision": "full",
+      "reason": "evidence or verification required; 2 full-mode signal(s)",
+      "timestamp": "2026-05-12T22:37:00.000Z"
+    }
+  ],
+  "blockers": []
+}

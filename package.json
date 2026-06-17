@@ -1,0 +1,31 @@
+{
+  "name": "reefnexus",
+  "version": "0.1.0",
+  "description": "Multiagent architecture and coordination skill blueprint for OpenClaw.",
+  "type": "module",
+  "main": "./src/reefrelay/index.mjs",
+  "bin": {
+    "reef-relay-runtime": "./skills/reef-relay/scripts/runtime-wrapper.mjs"
+  },
+  "openclaw": {
+    "extensions": [
+      "./src/openclaw-plugin/index.mjs"
+    ]
+  },
+  "exports": {
+    ".": "./src/reefrelay/index.mjs",
+    "./reefrelay": "./src/reefrelay/index.mjs",
+    "./reefrelay/internal": "./src/reefrelay/internal.mjs"
+  },
+  "scripts": {
+    "test": "node scripts/validate-docs.mjs && node scripts/test-routing-quality.mjs && node scripts/test-auto-routing.mjs && node scripts/test-full-run-generator.mjs && node scripts/test-full-dispatcher.mjs && node scripts/test-full-finalizer.mjs && node scripts/test-full-command.mjs && node scripts/test-taskflow-stub.mjs && node scripts/test-lite-stub.mjs && node scripts/test-lite-runtime.mjs && node scripts/test-live-dispatcher.mjs && node scripts/test-openclaw-live-adapter.mjs && node scripts/test-archive-manifest.mjs && node scripts/test-coordination-failures.mjs && node scripts/test-gate-transitions.mjs && node scripts/test-metrics.mjs && node scripts/test-feedback.mjs && node scripts/test-public-api-contract.mjs && node scripts/test-runtime-wrapper.mjs && node scripts/test-openclaw-plugin-command.mjs && node scripts/test-pc-offload-smoke.mjs"
+  },
+  "keywords": [
+    "openclaw",
+    "multiagent",
+    "orchestration",
+    "agents",
+    "coordination"
+  ],
+  "license": "MIT"
+}

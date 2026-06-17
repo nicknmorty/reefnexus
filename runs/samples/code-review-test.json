@@ -1,0 +1,260 @@
+{
+  "schemaVersion": "0.1.0",
+  "runId": "run-code-review-test",
+  "mode": "full",
+  "createdAt": "2026-05-12T00:00:00.000Z",
+  "updatedAt": "2026-05-12T00:00:00.000Z",
+  "goal": "Implement a small code change, review it independently, and verify it with tests",
+  "pattern": "hierarchical",
+  "riskClass": "normal",
+  "status": "queued",
+  "routing": {
+    "routeOutcome": "selected",
+    "confidence": 0.92,
+    "selectedLane": "code-review-test",
+    "fallbackUsed": false,
+    "clarificationAsked": false,
+    "escalationTriggered": false,
+    "reasons": [
+      "Task requires mutation, independent review, and verification evidence."
+    ],
+    "operatorOverride": false,
+    "overrideSource": null,
+    "autoSelection": null
+  },
+  "taskflow": {
+    "jobId": "run-code-review-test",
+    "ownerSessionKey": "session:reefnexus-dev",
+    "lifecycle": "created",
+    "revision": 1,
+    "childTaskIds": [
+      "intake-plan",
+      "implementation",
+      "review",
+      "verification",
+      "synthesis"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "intake-plan",
+      "role": "researcher",
+      "objective": "Confirm scope, acceptance criteria, risk class, and verification commands before mutation.",
+      "boundaries": [
+        "read-only planning",
+        "do not infer approvals"
+      ],
+      "inputs": [
+        "user goal",
+        "repo status",
+        "relevant docs"
+      ],
+      "outputs": [
+        "scope and verification plan"
+      ],
+      "timeoutOrDeadline": null,
+      "escalationCondition": "Scope or authority is ambiguous.",
+      "artifactTargets": [],
+      "status": "pending",
+      "owner": "reefrelay",
+      "startedAt": null,
+      "endedAt": null,
+      "evidence": [],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "evidence-backed scope and test plan"
+        ],
+        "result": "pending"
+      }
+    },
+    {
+      "id": "implementation",
+      "role": "implementer",
+      "objective": "Produce the smallest safe change set that satisfies accepted scope.",
+      "boundaries": [
+        "mutate only approved paths",
+        "avoid unrelated cleanup"
+      ],
+      "inputs": [
+        "scope and verification plan"
+      ],
+      "outputs": [
+        "diff or patch artifact"
+      ],
+      "timeoutOrDeadline": null,
+      "escalationCondition": "Implementation exceeds accepted scope or requires high-risk action.",
+      "artifactTargets": [
+        "diff"
+      ],
+      "status": "pending",
+      "owner": "reefrelay",
+      "startedAt": null,
+      "endedAt": null,
+      "evidence": [],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "touched path list",
+          "diff summary"
+        ],
+        "result": "pending"
+      }
+    },
+    {
+      "id": "review",
+      "role": "reviewer",
+      "objective": "Independently review the change set for correctness, risk, and missing tests.",
+      "boundaries": [
+        "read-only review",
+        "do not produce final product output"
+      ],
+      "inputs": [
+        "diff or patch artifact",
+        "scope and verification plan"
+      ],
+      "outputs": [
+        "structured review findings"
+      ],
+      "timeoutOrDeadline": null,
+      "escalationCondition": "Review finds unresolved correctness, safety, or scope issues.",
+      "artifactTargets": [],
+      "status": "pending",
+      "owner": "reefrelay",
+      "startedAt": null,
+      "endedAt": null,
+      "evidence": [],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "file/diff references for every finding"
+        ],
+        "result": "pending"
+      }
+    },
+    {
+      "id": "verification",
+      "role": "tester",
+      "objective": "Run the smallest meaningful verification checks and record exact evidence.",
+      "boundaries": [
+        "no broad environment changes",
+        "no destructive cleanup"
+      ],
+      "inputs": [
+        "change set",
+        "verification plan"
+      ],
+      "outputs": [
+        "test output summary"
+      ],
+      "timeoutOrDeadline": null,
+      "escalationCondition": "Tests fail, are unavailable, or require credentials/approval.",
+      "artifactTargets": [
+        "test"
+      ],
+      "status": "pending",
+      "owner": "reefrelay",
+      "startedAt": null,
+      "endedAt": null,
+      "evidence": [],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "command names",
+          "exit status",
+          "key output"
+        ],
+        "result": "pending"
+      }
+    },
+    {
+      "id": "synthesis",
+      "role": "synthesizer",
+      "objective": "Draft final summary from accepted findings and gate evidence only.",
+      "boundaries": [
+        "no raw worker output",
+        "no claims without evidence"
+      ],
+      "inputs": [
+        "review findings",
+        "test output",
+        "gate records"
+      ],
+      "outputs": [
+        "final synthesis draft"
+      ],
+      "timeoutOrDeadline": null,
+      "escalationCondition": "Gates are blocked or final acceptance is not defensible.",
+      "artifactTargets": [],
+      "status": "pending",
+      "owner": "reefrelay",
+      "startedAt": null,
+      "endedAt": null,
+      "evidence": [],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "accepted finding IDs",
+          "gate evidence references"
+        ],
+        "result": "pending"
+      }
+    }
+  ],
+  "childResults": [
+    {
+      "taskId": "intake-plan",
+      "status": "done",
+      "summary": "Scope, acceptance criteria, and verification plan were established before mutation.",
+      "findings": [
+        {
+          "id": "finding-code-review-test-scope",
+          "claim": "Code+review+test work needs separate implementation, review, verification, and synthesis lanes.",
+          "evidence": [
+            "docs/WORKFLOW_RECIPE_CODE_REVIEW_TEST.md:1",
+            "docs/ROADMAP.md:35"
+          ],
+          "confidence": "high",
+          "severity": "low",
+          "recommendedAction": "accept"
+        }
+      ],
+      "blockers": [],
+      "assumptions": []
+    }
+  ],
+  "findingDecisions": [
+    {
+      "findingId": "finding-code-review-test-scope",
+      "decision": "accepted",
+      "reason": "The recipe and roadmap identify the workflow class and required hardening order.",
+      "decider": "orchestrator",
+      "evidenceReviewed": [
+        "docs/WORKFLOW_RECIPE_CODE_REVIEW_TEST.md:1",
+        "docs/ROADMAP.md:35"
+      ]
+    }
+  ],
+  "gates": {
+    "safety": {
+      "result": "pending",
+      "notes": ""
+    },
+    "verification": {
+      "result": "pending",
+      "notes": ""
+    },
+    "finalAcceptance": {
+      "result": "pending",
+      "notes": ""
+    }
+  },
+  "artifacts": [],
+  "decisions": [],
+  "blockers": []
+}

@@ -1,0 +1,20 @@
+{
+  "id": "reef-relay",
+  "name": "ReefRelay",
+  "description": "Runtime-only ReefRelay native command wrapper for OpenClaw.",
+  "version": "0.1.0",
+  "activation": {
+    "onStartup": true
+  },
+  "commandAliases": [
+    {
+      "name": "reef_relay",
+      "kind": "runtime-slash"
+    }
+  ],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}

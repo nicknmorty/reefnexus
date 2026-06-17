@@ -1,0 +1,655 @@
+{
+  "schemaVersion": "0.1.0",
+  "runId": "run-auto-phase-4b-blocked-metrics-fixture-coordinate-implementati",
+  "mode": "full",
+  "createdAt": "2026-05-12T23:45:00.000Z",
+  "updatedAt": "2026-05-12T23:45:00.000Z",
+  "goal": "Phase 4B blocked metrics fixture: coordinate implementation, review, verification evidence, gates, final synthesis, tests, and docs",
+  "pattern": "hierarchical",
+  "riskClass": "normal",
+  "status": "blocked",
+  "routing": {
+    "routeOutcome": "selected",
+    "confidence": 0.84,
+    "selectedLane": "full-auto",
+    "fallbackUsed": false,
+    "clarificationAsked": false,
+    "escalationTriggered": false,
+    "reasons": [
+      "evidence or verification required",
+      "4 full-mode signal(s)",
+      "1 lite-mode signal(s)"
+    ]
+  },
+  "taskflow": {
+    "jobId": "run-auto-phase-4b-blocked-metrics-fixture-coordinate-implementati",
+    "ownerSessionKey": "session:phase-4b-blocked",
+    "lifecycle": "failed",
+    "revision": 2,
+    "childTaskIds": [
+      "intake-plan",
+      "implementation",
+      "review",
+      "verification",
+      "synthesis"
+    ]
+  },
+  "tasks": [
+    {
+      "id": "intake-plan",
+      "role": "researcher",
+      "objective": "Clarify requirements, constraints, risks, and acceptance criteria for: Phase 4B blocked metrics fixture: coordinate implementation, review, verification evidence, gates, final synthesis, tests, and docs",
+      "boundaries": [
+        "Stay within the request scope",
+        "Do not perform irreversible/external actions without orchestrator approval"
+      ],
+      "inputs": [
+        "operator request",
+        "routing metadata"
+      ],
+      "outputs": [
+        "scope summary",
+        "risk notes",
+        "acceptance criteria"
+      ],
+      "timeoutOrDeadline": "bounded interactive session",
+      "escalationCondition": "Missing authority, unsafe ambiguity, blocked dependency, or insufficient evidence",
+      "artifactTargets": [],
+      "status": "done",
+      "owner": "reefrelay",
+      "startedAt": "2026-05-12T23:45:00.000Z",
+      "endedAt": "2026-05-12T23:45:00.000Z",
+      "evidence": [
+        "raw-intake-plan"
+      ],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "evidence for every material claim"
+        ],
+        "result": "passed"
+      }
+    },
+    {
+      "id": "implementation",
+      "role": "implementer",
+      "objective": "Produce the scoped implementation or change set for: Phase 4B blocked metrics fixture: coordinate implementation, review, verification evidence, gates, final synthesis, tests, and docs",
+      "boundaries": [
+        "Stay within the request scope",
+        "Do not perform irreversible/external actions without orchestrator approval"
+      ],
+      "inputs": [
+        "operator request",
+        "intake-plan output"
+      ],
+      "outputs": [
+        "patch/artifact summary",
+        "changed files",
+        "implementation notes"
+      ],
+      "timeoutOrDeadline": "bounded interactive session",
+      "escalationCondition": "Missing authority, unsafe ambiguity, blocked dependency, or insufficient evidence",
+      "artifactTargets": [],
+      "status": "done",
+      "owner": "reefrelay",
+      "startedAt": "2026-05-12T23:45:00.000Z",
+      "endedAt": "2026-05-12T23:45:00.000Z",
+      "evidence": [
+        "raw-implementation"
+      ],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "diff or artifact references"
+        ],
+        "result": "passed"
+      }
+    },
+    {
+      "id": "review",
+      "role": "reviewer",
+      "objective": "Review the implementation for correctness, scope, safety, and maintainability: Phase 4B blocked metrics fixture: coordinate implementation, review, verification evidence, gates, final synthesis, tests, and docs",
+      "boundaries": [
+        "Stay within the request scope",
+        "Do not perform irreversible/external actions without orchestrator approval"
+      ],
+      "inputs": [
+        "implementation output",
+        "acceptance criteria"
+      ],
+      "outputs": [
+        "review findings",
+        "required fixes",
+        "approval/blocking recommendation"
+      ],
+      "timeoutOrDeadline": "bounded interactive session",
+      "escalationCondition": "Missing authority, unsafe ambiguity, blocked dependency, or insufficient evidence",
+      "artifactTargets": [],
+      "status": "done",
+      "owner": "reefrelay",
+      "startedAt": "2026-05-12T23:45:00.000Z",
+      "endedAt": "2026-05-12T23:45:00.000Z",
+      "evidence": [
+        "raw-review"
+      ],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "each finding tied to concrete evidence"
+        ],
+        "result": "passed"
+      }
+    },
+    {
+      "id": "verification",
+      "role": "tester",
+      "objective": "Run or define the required verification checks for: Phase 4B blocked metrics fixture: coordinate implementation, review, verification evidence, gates, final synthesis, tests, and docs",
+      "boundaries": [
+        "Stay within the request scope",
+        "Do not perform irreversible/external actions without orchestrator approval"
+      ],
+      "inputs": [
+        "operator request",
+        "implementation/review outputs"
+      ],
+      "outputs": [
+        "test/check report",
+        "pass/fail breakdown"
+      ],
+      "timeoutOrDeadline": "bounded interactive session",
+      "escalationCondition": "Missing authority, unsafe ambiguity, blocked dependency, or insufficient evidence",
+      "artifactTargets": [],
+      "status": "blocked",
+      "owner": "reefrelay",
+      "startedAt": "2026-05-12T23:45:00.000Z",
+      "endedAt": "2026-05-12T23:45:00.000Z",
+      "evidence": [
+        "raw-verification"
+      ],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "command output or explicit verification evidence"
+        ],
+        "result": "failed"
+      }
+    },
+    {
+      "id": "synthesis",
+      "role": "synthesizer",
+      "objective": "Prepare final synthesis only after child results, finding decisions, and gates are reviewed for: Phase 4B blocked metrics fixture: coordinate implementation, review, verification evidence, gates, final synthesis, tests, and docs",
+      "boundaries": [
+        "Stay within the request scope",
+        "Do not perform irreversible/external actions without orchestrator approval"
+      ],
+      "inputs": [
+        "normalized child results",
+        "finding decisions",
+        "gate states"
+      ],
+      "outputs": [
+        "final synthesis draft with evidence and caveats"
+      ],
+      "timeoutOrDeadline": "bounded interactive session",
+      "escalationCondition": "Missing authority, unsafe ambiguity, blocked dependency, or insufficient evidence",
+      "artifactTargets": [],
+      "status": "failed",
+      "owner": "reefrelay",
+      "startedAt": "2026-05-12T23:45:00.000Z",
+      "endedAt": "2026-05-12T23:45:00.000Z",
+      "evidence": [
+        "raw-synthesis"
+      ],
+      "assumptions": [],
+      "risks": [],
+      "verification": {
+        "checks": [
+          "safety/verification/final acceptance gates referenced"
+        ],
+        "result": "failed"
+      }
+    }
+  ],
+  "childResults": [
+    {
+      "taskId": "intake-plan",
+      "status": "done",
+      "summary": "researcher lane completed bounded dispatch for run-auto-phase-4b-blocked-metrics-fixture-coordinate-implementati.",
+      "findings": [
+        {
+          "id": "intake-plan-finding-1",
+          "claim": "intake-plan completed its bounded contract for researcher lane",
+          "evidence": [
+            "artifact:raw-intake-plan",
+            "task:intake-plan:objective"
+          ],
+          "confidence": "high",
+          "severity": "low",
+          "recommendedAction": "accept",
+          "observedAt": "2026-05-12T23:45:00.000Z"
+        }
+      ],
+      "blockers": [],
+      "assumptions": [
+        "Deterministic dispatcher used a mock child runner with real child-result contract shape."
+      ],
+      "rawArtifact": "raw-intake-plan",
+      "normalizedAt": "2026-05-12T23:45:00.000Z"
+    },
+    {
+      "taskId": "implementation",
+      "status": "done",
+      "summary": "implementer lane completed bounded dispatch for run-auto-phase-4b-blocked-metrics-fixture-coordinate-implementati.",
+      "findings": [
+        {
+          "id": "implementation-finding-2",
+          "claim": "implementation completed its bounded contract for implementer lane",
+          "evidence": [
+            "artifact:raw-implementation",
+            "task:implementation:objective"
+          ],
+          "confidence": "high",
+          "severity": "low",
+          "recommendedAction": "accept",
+          "observedAt": "2026-05-12T23:45:00.000Z"
+        }
+      ],
+      "blockers": [],
+      "assumptions": [
+        "Deterministic dispatcher used a mock child runner with real child-result contract shape."
+      ],
+      "rawArtifact": "raw-implementation",
+      "normalizedAt": "2026-05-12T23:45:00.000Z"
+    },
+    {
+      "taskId": "review",
+      "status": "done",
+      "summary": "Review lane produced a repairable finding packet with scalar evidence.",
+      "findings": [
+        {
+          "id": "review-finding-3",
+          "claim": "Dispatcher normalization should repair scalar evidence into an evidence list.",
+          "evidence": [
+            "artifact:raw-review"
+          ],
+          "confidence": "medium",
+          "severity": "low",
+          "recommendedAction": "accept"
+        }
+      ],
+      "blockers": [],
+      "assumptions": [
+        "Repairable malformed output is acceptable only after normalized shape validation."
+      ],
+      "rawArtifact": "raw-review",
+      "normalizedAt": "2026-05-12T23:45:00.000Z"
+    },
+    {
+      "taskId": "verification",
+      "status": "blocked",
+      "summary": "Verification lane is blocked until implementation artifacts exist in the real runtime.",
+      "findings": [],
+      "blockers": [
+        "No live implementation diff was provided to execute tests against in deterministic dispatcher mode."
+      ],
+      "assumptions": [
+        "This fixture intentionally persists a blocked child result."
+      ],
+      "rawArtifact": "raw-verification",
+      "normalizedAt": "2026-05-12T23:45:00.000Z"
+    },
+    {
+      "taskId": "synthesis",
+      "status": "failed",
+      "summary": "Malformed child output rejected; raw text retained only as an artifact.",
+      "findings": [],
+      "blockers": [
+        "Child output was not a structured result object."
+      ],
+      "assumptions": [],
+      "rawArtifact": "raw-synthesis",
+      "normalizedAt": "2026-05-12T23:45:00.000Z"
+    }
+  ],
+  "findingDecisions": [
+    {
+      "findingId": "intake-plan-finding-1",
+      "taskId": "intake-plan",
+      "decision": "accepted",
+      "reason": "Orchestrator followed child recommendation accept.",
+      "decider": "orchestrator",
+      "evidenceReviewed": [
+        "artifact:raw-intake-plan",
+        "task:intake-plan:objective"
+      ],
+      "timestamp": "2026-05-12T23:45:00.000Z"
+    },
+    {
+      "findingId": "implementation-finding-2",
+      "taskId": "implementation",
+      "decision": "accepted",
+      "reason": "Orchestrator followed child recommendation accept.",
+      "decider": "orchestrator",
+      "evidenceReviewed": [
+        "artifact:raw-implementation",
+        "task:implementation:objective"
+      ],
+      "timestamp": "2026-05-12T23:45:00.000Z"
+    },
+    {
+      "findingId": "review-finding-3",
+      "taskId": "review",
+      "decision": "accepted",
+      "reason": "Orchestrator followed child recommendation accept.",
+      "decider": "orchestrator",
+      "evidenceReviewed": [
+        "artifact:raw-review"
+      ],
+      "timestamp": "2026-05-12T23:45:00.000Z"
+    }
+  ],
+  "gates": {
+    "safety": {
+      "result": "passed",
+      "notes": "Risk and scope constraints are acceptable for final review.",
+      "evidence": [
+        "artifact:raw-intake-plan",
+        "task:intake-plan:objective",
+        "artifact:raw-implementation",
+        "task:implementation:objective",
+        "artifact:raw-review"
+      ]
+    },
+    "verification": {
+      "result": "blocked",
+      "notes": "Verification is explicitly blocked by child blocker/failure state.",
+      "evidence": [
+        "artifact:raw-intake-plan",
+        "task:intake-plan:objective",
+        "artifact:raw-implementation",
+        "task:implementation:objective",
+        "artifact:raw-review"
+      ]
+    },
+    "finalAcceptance": {
+      "result": "passed",
+      "notes": "Final synthesis is allowed only as a no-send/blocker report because an upstream gate is blocked.",
+      "evidence": [
+        "artifact:raw-intake-plan",
+        "task:intake-plan:objective",
+        "artifact:raw-implementation",
+        "task:implementation:objective",
+        "artifact:raw-review"
+      ]
+    }
+  },
+  "artifacts": [
+    {
+      "id": "raw-intake-plan",
+      "type": "report",
+      "path": "runs/phase-4b-metrics/artifacts/blocked/intake-plan.raw.json",
+      "producerTaskId": "intake-plan",
+      "createdAt": "2026-05-12T23:45:00.000Z"
+    },
+    {
+      "id": "raw-implementation",
+      "type": "report",
+      "path": "runs/phase-4b-metrics/artifacts/blocked/implementation.raw.json",
+      "producerTaskId": "implementation",
+      "createdAt": "2026-05-12T23:45:00.000Z"
+    },
+    {
+      "id": "raw-review",
+      "type": "report",
+      "path": "runs/phase-4b-metrics/artifacts/blocked/review.raw.json",
+      "producerTaskId": "review",
+      "createdAt": "2026-05-12T23:45:00.000Z"
+    },
+    {
+      "id": "raw-verification",
+      "type": "report",
+      "path": "runs/phase-4b-metrics/artifacts/blocked/verification.raw.json",
+      "producerTaskId": "verification",
+      "createdAt": "2026-05-12T23:45:00.000Z"
+    },
+    {
+      "id": "raw-synthesis",
+      "type": "report",
+      "path": "runs/phase-4b-metrics/artifacts/blocked/synthesis.raw.json",
+      "producerTaskId": "synthesis",
+      "createdAt": "2026-05-12T23:45:00.000Z"
+    }
+  ],
+  "decisions": [
+    {
+      "id": "route-selection",
+      "decision": "full",
+      "reason": "evidence or verification required; 4 full-mode signal(s); 1 lite-mode signal(s)",
+      "timestamp": "2026-05-12T23:45:00.000Z"
+    },
+    {
+      "id": "normalize-intake-plan",
+      "decision": "accepted",
+      "reason": "Structured child output matched full child-result schema.",
+      "timestamp": "2026-05-12T23:45:00.000Z",
+      "taskId": "intake-plan",
+      "artifactId": "raw-intake-plan"
+    },
+    {
+      "id": "normalize-implementation",
+      "decision": "accepted",
+      "reason": "Structured child output matched full child-result schema.",
+      "timestamp": "2026-05-12T23:45:00.000Z",
+      "taskId": "implementation",
+      "artifactId": "raw-implementation"
+    },
+    {
+      "id": "normalize-review",
+      "decision": "repaired",
+      "reason": "Repairable child output normalized: finding review-finding-3: scalar evidence repaired to evidence[]",
+      "timestamp": "2026-05-12T23:45:00.000Z",
+      "taskId": "review",
+      "artifactId": "raw-review"
+    },
+    {
+      "id": "normalize-verification",
+      "decision": "accepted",
+      "reason": "Structured child output matched full child-result schema.",
+      "timestamp": "2026-05-12T23:45:00.000Z",
+      "taskId": "verification",
+      "artifactId": "raw-verification"
+    },
+    {
+      "id": "normalize-synthesis",
+      "decision": "rejected",
+      "reason": "Malformed child output rejected and persisted as failed child result.",
+      "timestamp": "2026-05-12T23:45:00.000Z",
+      "taskId": "synthesis",
+      "artifactId": "raw-synthesis"
+    }
+  ],
+  "blockers": [
+    {
+      "taskId": "verification",
+      "blocker": "No live implementation diff was provided to execute tests against in deterministic dispatcher mode."
+    },
+    {
+      "taskId": "synthesis",
+      "blocker": "Child output was not a structured result object."
+    }
+  ],
+  "gateRecords": [
+    {
+      "runId": "run-auto-phase-4b-blocked-metrics-fixture-coordinate-implementati",
+      "gate": "safety",
+      "result": "passed",
+      "decision": "continue",
+      "reason": "Risk and scope constraints are acceptable for final review.",
+      "evidence": [
+        "artifact:raw-intake-plan",
+        "task:intake-plan:objective",
+        "artifact:raw-implementation",
+        "task:implementation:objective",
+        "artifact:raw-review"
+      ],
+      "requiredFixes": [],
+      "owner": "orchestrator",
+      "timestamp": "2026-05-12T23:45:00.000Z"
+    },
+    {
+      "runId": "run-auto-phase-4b-blocked-metrics-fixture-coordinate-implementati",
+      "gate": "verification",
+      "result": "blocked",
+      "decision": "no-send",
+      "reason": "Verification is explicitly blocked by child blocker/failure state.",
+      "evidence": [
+        "artifact:raw-intake-plan",
+        "task:intake-plan:objective",
+        "artifact:raw-implementation",
+        "task:implementation:objective",
+        "artifact:raw-review"
+      ],
+      "requiredFixes": [
+        "verification: No live implementation diff was provided to execute tests against in deterministic dispatcher mode.",
+        "synthesis: Child output was not a structured result object."
+      ],
+      "owner": "orchestrator",
+      "timestamp": "2026-05-12T23:45:00.000Z"
+    },
+    {
+      "runId": "run-auto-phase-4b-blocked-metrics-fixture-coordinate-implementati",
+      "gate": "finalAcceptance",
+      "result": "passed",
+      "decision": "no-send",
+      "reason": "Final synthesis is allowed only as a no-send/blocker report because an upstream gate is blocked.",
+      "evidence": [
+        "artifact:raw-intake-plan",
+        "task:intake-plan:objective",
+        "artifact:raw-implementation",
+        "task:implementation:objective",
+        "artifact:raw-review"
+      ],
+      "requiredFixes": [
+        "verification: No live implementation diff was provided to execute tests against in deterministic dispatcher mode.",
+        "synthesis: Child output was not a structured result object."
+      ],
+      "owner": "orchestrator",
+      "timestamp": "2026-05-12T23:45:00.000Z"
+    }
+  ],
+  "finalDecision": {
+    "sendDecision": "no-send",
+    "reason": "Final synthesis is allowed only as a no-send/blocker report because an upstream gate is blocked.",
+    "persistedAt": "2026-05-12T23:45:00.000Z"
+  },
+  "finalSynthesis": {
+    "runId": "run-auto-phase-4b-blocked-metrics-fixture-coordinate-implementati",
+    "createdAt": "2026-05-12T23:45:00.000Z",
+    "summary": "Full ReefRelay produced a no-send synthesis for Phase 4B blocked metrics fixture: coordinate implementation, review, verification evidence, gates, final synthesis, tests, and docs because one or more gates were blocked.",
+    "whatChangedOrFound": [
+      "intake-plan completed its bounded contract for researcher lane",
+      "implementation completed its bounded contract for implementer lane",
+      "Dispatcher normalization should repair scalar evidence into an evidence list."
+    ],
+    "evidenceReferences": [
+      "artifact:raw-intake-plan",
+      "task:intake-plan:objective",
+      "artifact:raw-implementation",
+      "task:implementation:objective",
+      "artifact:raw-review"
+    ],
+    "caveatsOrBlockers": [
+      "verification: No live implementation diff was provided to execute tests against in deterministic dispatcher mode.",
+      "synthesis: Child output was not a structured result object."
+    ],
+    "sendDecision": "no-send",
+    "decisionReason": "Final synthesis is allowed only as a no-send/blocker report because an upstream gate is blocked."
+  },
+  "metrics": {
+    "schemaVersion": "reefrelay-run-metrics@0.1.0",
+    "runId": "run-auto-phase-4b-blocked-metrics-fixture-coordinate-implementati",
+    "collectedAt": "2026-05-12T23:45:00.000Z",
+    "mode": "full",
+    "status": "blocked",
+    "latency": {
+      "runMs": 0,
+      "taskMs": {
+        "intake-plan": 0,
+        "implementation": 0,
+        "review": 0,
+        "verification": 0,
+        "synthesis": 0
+      }
+    },
+    "tasks": {
+      "total": 5,
+      "byStatus": {
+        "pending": 0,
+        "running": 0,
+        "blocked": 1,
+        "done": 3,
+        "failed": 1
+      },
+      "childResults": {
+        "total": 5,
+        "byStatus": {
+          "done": 3,
+          "blocked": 1,
+          "failed": 1
+        }
+      }
+    },
+    "blockers": {
+      "total": 2,
+      "byTask": {
+        "verification": 1,
+        "synthesis": 1
+      }
+    },
+    "failures": {
+      "failedTaskCount": 1,
+      "blockedTaskCount": 1,
+      "failedChildCount": 1,
+      "blockedChildCount": 1,
+      "noSend": true
+    },
+    "retries": {
+      "total": 0,
+      "sources": []
+    },
+    "artifacts": {
+      "total": 5,
+      "byType": {
+        "report": 5
+      }
+    },
+    "findings": {
+      "total": 3,
+      "decisions": {
+        "accepted": 3,
+        "rejected": 0,
+        "deferred": 0
+      },
+      "evidenceReferenceCount": 5
+    },
+    "gates": {
+      "total": 3,
+      "byResult": {
+        "passed": 2,
+        "blocked": 1
+      },
+      "byDecision": {
+        "continue": 1,
+        "no-send": 2
+      }
+    },
+    "costHints": {
+      "available": false,
+      "reason": "No provider usage or cost metadata persisted on this deterministic run artifact."
+    }
+  }
+}

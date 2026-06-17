@@ -1,0 +1,16 @@
+{
+  "taskId": "verification",
+  "producedAt": "2026-05-12T00:00:00.000Z",
+  "raw": {
+    "taskId": "verification",
+    "status": "blocked",
+    "summary": "Verification lane is blocked until implementation artifacts exist in the real runtime.",
+    "findings": [],
+    "blockers": [
+      "No live implementation diff was provided to execute tests against in deterministic dispatcher mode."
+    ],
+    "assumptions": [
+      "This fixture intentionally persists a blocked child result."
+    ]
+  }
+}

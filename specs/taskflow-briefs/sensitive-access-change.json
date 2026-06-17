@@ -1,0 +1,40 @@
+{
+  "id": "sensitive-access-change",
+  "goal": "Adjust production access bindings safely",
+  "pattern": "sequential",
+  "riskClass": "security",
+  "ownerSessionKey": "session:security-change",
+  "routing": {
+    "routeOutcome": "low_confidence",
+    "confidence": 0.58,
+    "selectedLane": "security",
+    "clarificationAsked": true,
+    "escalationTriggered": true
+  },
+  "contracts": [
+    {
+      "taskId": "plan-1",
+      "role": "reviewer",
+      "objective": "Draft minimal change + rollback plan",
+      "inputs": ["current access policy"],
+      "expectedOutputs": ["change plan"],
+      "verificationRequired": ["rollback steps included"]
+    },
+    {
+      "taskId": "implement-1",
+      "role": "implementer",
+      "objective": "Apply approved access change",
+      "inputs": ["approved plan"],
+      "expectedOutputs": ["policy diff"],
+      "verificationRequired": ["approval reference", "post-change check"]
+    },
+    {
+      "taskId": "final-1",
+      "role": "synthesizer",
+      "objective": "Prepare operator-safe outcome summary",
+      "inputs": ["policy diff", "check output"],
+      "expectedOutputs": ["final report"],
+      "verificationRequired": ["safety gate status"]
+    }
+  ]
+}
