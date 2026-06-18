@@ -23,15 +23,14 @@ The repo currently defines deterministic command paths for:
 - `/reef_relay lite <goal>` / `/skill reef-relay lite <goal>` — compile and run bounded lite dispatch with normalized child outputs, finding decisions, gates, and final synthesis.
 - `/reef_relay full <goal>` / `/skill reef-relay full <goal>` — explicit operator override into the proven full run generator, TaskFlow compile stub, dispatcher, finalizer, and final synthesis contracts.
 
-Deterministic `lite`/`full` uses mock child runners for contract validation and routine smokes. Private trusted-beta `live-lite`/`live-full` uses the guarded OpenClaw CLI live adapter for bounded real child dispatch when explicitly requested; see `docs/RUNTIME_WRAPPER.md` and `docs/NATIVE_COMMAND.md`.
+Deterministic `lite`/`full` uses mock child runners for contract validation and routine smokes. Opt-in `live-lite`/`live-full` uses the guarded OpenClaw CLI live adapter for bounded real child dispatch when explicitly requested; see `docs/RUNTIME_WRAPPER.md` and `docs/NATIVE_COMMAND.md`.
 
-## Command roadmap
+## Command paths
 
 - **Primary product path:** automatic direct/lite/full routing and full ReefRelay engagement when task shape warrants it.
-- **V1/private command path:** `/reef_relay lite <goal>` and `/reef_relay full <goal>` for explicit bounded private operator/testing use, plus trusted-beta `live-lite`/`live-full` for visible operator/trusted operator testing.
-- **V2/public-eligible command path:** production/public packaging, aliases, broad enablement, and default-on behavior only after operator separately approves a later rollout phase.
+- **Explicit path:** `/reef_relay lite <goal>` and `/reef_relay full <goal>` for bounded runs, plus opt-in `live-lite`/`live-full` for guarded live operator testing.
 
-## v0/V1 commands
+## Commands
 
 ### `/reef_relay lite <goal>`
 

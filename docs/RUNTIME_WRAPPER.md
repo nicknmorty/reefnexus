@@ -1,10 +1,10 @@
-# Runtime wrapper and packaging decision
+# Runtime wrapper
 
-Phase 7 kept ReefRelay private and local as a **project-local library plus AgentSkill wrapper**. Later private runtime phases added the native `/reef_relay` OpenClaw plugin command for trusted-beta testing only; that native command is now the preferred visible command surface for operator/trusted operator-style private smokes.
+ReefRelay ships as a **project-local library plus AgentSkill wrapper**, with a native `/reef_relay` OpenClaw plugin command. The native command is the preferred visible command surface; the wrapper remains the shell/API fallback and artifact-producing layer.
 
 ## Decision
 
-Use the Phase 6 stable API from `src/reefrelay/index.mjs` as the library boundary. The runtime wrapper remains the shell/API fallback and artifact-producing implementation layer:
+Use the stable API from `src/reefrelay/index.mjs` as the library boundary. The runtime wrapper remains the shell/API fallback and artifact-producing implementation layer:
 
 ```bash
 node skills/reef-relay/scripts/runtime-wrapper.mjs --command '/reef_relay lite <goal>' --out-dir runs/wrapper-smoke/lite
@@ -58,7 +58,7 @@ For each run, the wrapper writes:
 Full mode also writes `brief.json`, `generated-run.json`, and `dispatched-run.json` to preserve route/run-generation evidence.
 
 
-## Live dispatcher MVP (Phase 8)
+## Live dispatcher
 
 Deterministic/mock dispatch remains the default. A guarded live-child path is available only when explicitly requested:
 
@@ -95,7 +95,7 @@ Guardrails:
 - Resume/retry can reuse previous successful child results only when the live prompt/context fingerprint matches; blocked/failed lanes can be respawned with `--resume-from <final-run.json> --retry-blocked`.
 - For read-only dogfood/code-review tasks, pass enough evidence in the goal or via `--context-file <path>`; live children should block rather than invent findings when they lack inspectable context.
 
-Rollback/fallback: rerun the same command without `--dispatcher live` to use deterministic dispatch, or switch the adapter back to `skills/reef-relay/adapters/fake-live-adapter.mjs` for contract-only smoke coverage. The OpenClaw CLI adapter remains private/opt-in after Phase 10: acceptable for low-risk internal smokes with supplied context, but not production/default-on behavior.
+Rollback/fallback: rerun the same command without `--dispatcher live` to use deterministic dispatch, or switch the adapter back to `skills/reef-relay/adapters/fake-live-adapter.mjs` for contract-only smoke coverage. The OpenClaw CLI adapter is opt-in: acceptable for low-risk smokes with supplied context, but not default-on behavior.
 
 ## Verification
 
@@ -103,9 +103,5 @@ Rollback/fallback: rerun the same command without `--dispatcher live` to use det
 
 ## Boundaries
 
-- Private/internal runtime MVP only.
-- Deterministic/mock dispatch remains the default; live dispatch is private/opt-in and guarded.
-- No external publish.
-- No production rollout.
+- Deterministic/mock dispatch remains the default; live dispatch is opt-in and guarded.
 - No broad command alias claims.
-- Phase 10 runtime-ready criteria, known limits, and production blockers live in `docs/RUNTIME_READY.md`.

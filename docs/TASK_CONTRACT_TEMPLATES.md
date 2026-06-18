@@ -1,4 +1,4 @@
-# TASK_CONTRACT_TEMPLATES.md — ReefRelay subtask contracts (v0)
+# TASK_CONTRACT_TEMPLATES.md — ReefRelay subtask contracts
 
 Use these templates to keep specialist work bounded, testable, and auditable.
 

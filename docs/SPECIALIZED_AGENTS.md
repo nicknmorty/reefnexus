@@ -2,7 +2,7 @@
 
 This document scopes the first specialized agents for ReefNexus/ReefRelay.
 
-## Agent roster (v0)
+## Agent roster
 
 ### 1) Orchestrator (ReefNexus)
 **Purpose:** Own the plan, sequencing, checkpoints, and final acceptance.

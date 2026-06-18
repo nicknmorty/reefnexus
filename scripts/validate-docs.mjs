@@ -2,19 +2,14 @@ import { existsSync, readFileSync } from 'node:fs';
 
 const required = [
   'README.md',
-  'PROJECT_STATUS.md',
   'docs/VISION.md',
   'docs/SCOPE.md',
   'docs/ARCHITECTURE.md',
   'docs/ROADMAP.md',
   'docs/NAMING.md',
   'docs/SPECIALIZED_AGENTS.md',
-  'docs/OPERATING_MODEL_LEARNINGS.md',
   'docs/REEFRELAY_RUNBOOK.md',
-  'docs/RUNTIME_READY.md',
-  'docs/BETA_REVIEW.md',
   'docs/NATIVE_COMMAND.md',
-  'docs/EXTERNAL_REPO_LEARNINGS.md',
   'docs/SUPERVISOR_MODE.md',
   'docs/FALLBACK_MATRIX.md',
   'docs/STATE_SCHEMA.md',
@@ -80,35 +75,6 @@ const operatorRunbook = readFileSync('docs/REEFRELAY_RUNBOOK.md', 'utf8');
 if (!operatorRunbook.includes('docs/runbooks/project-standard.md')) {
   console.error('ReefRelay operator runbook must link project orchestration to docs/runbooks/project-standard.md');
   failed = true;
-}
-
-const runtimeReady = readFileSync('docs/RUNTIME_READY.md', 'utf8');
-for (const term of [
-  'runtime-ready MVP',
-  'Production-readiness checklist',
-  'operator approval starts production-readiness',
-  'trusted operator beta feedback',
-  'V2',
-  'known limits',
-]) {
-  if (!runtimeReady.toLowerCase().includes(term.toLowerCase())) {
-    console.error(`runtime-ready doc missing required closeout phrase: ${term}`);
-    failed = true;
-  }
-}
-
-const betaReview = readFileSync('docs/BETA_REVIEW.md', 'utf8');
-for (const term of [
-  'V1 beta',
-  'trusted operators have collaborator pull/view access',
-  'trusted operator feedback is required',
-  'V2 is the first public-eligible track',
-  'Public transition',
-]) {
-  if (!betaReview.toLowerCase().includes(term.toLowerCase())) {
-    console.error(`beta review doc missing required phrase: ${term}`);
-    failed = true;
-  }
 }
 
 const nativeCommand = readFileSync('docs/NATIVE_COMMAND.md', 'utf8');

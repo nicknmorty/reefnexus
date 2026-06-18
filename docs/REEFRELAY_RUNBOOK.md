@@ -148,11 +148,9 @@ Avoid dumping raw subagent transcripts by default.
 
 Manager-mode completion loop applies: build → verify → fix → report → document → status → memory (when appropriate) → commit/push.
 
-## Private/local wrapper smoke path
+## Local wrapper smoke path
 
-For the Phase 10 private/internal runtime-ready MVP, start with `docs/RUNTIME_READY.md` for quickstart, troubleshooting, acceptance criteria, and the explicit production blocker checklist.
-
-Until native command/plugin registration exists, use the private wrapper for local deterministic runtime checks:
+Use the wrapper for local deterministic runtime checks:
 
 ```bash
 node skills/reef-relay/scripts/runtime-wrapper.mjs --command '/reef_relay lite <goal>' --out-dir runs/wrapper-smoke/lite

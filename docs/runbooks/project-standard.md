@@ -1,6 +1,6 @@
 # Project standard runbook — idea to legitimate MVP
 
-Status: draft reviewed by operator; validation/linkage follow-up remains before Phase 4D closeout  
+Status: active  
 Owner: operator / ReefRelay orchestrator  
 Purpose: encode the operator's expected project flow so ReefRelay can run more hands-off without guessing.
 
