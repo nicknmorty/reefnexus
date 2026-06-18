@@ -1,6 +1,6 @@
 # ReefRelay API and contract boundaries
 
-Phase 6 defines ReefRelay's reusable deterministic runtime spine as a small project-local library. The package is still private and pre-production, but callers no longer need to import CLI scripts directly.
+ReefRelay's reusable deterministic runtime spine is a small project-local library. Callers do not need to import CLI scripts directly.
 
 ## Stable import surface
 
@@ -87,7 +87,7 @@ Stable contracts:
 
 Current CLI files under `scripts/` remain executable for fixtures and operator smoke tests. Treat them as wrappers/implementation details, not as the import contract for new callers.
 
-The private/local runtime wrapper lives at `skills/reef-relay/scripts/runtime-wrapper.mjs`. It calls the stable public API, writes predictable operator artifacts, and is the preferred local AgentSkill bridge until a future native command/plugin route exists. Phase 8 adds opt-in live dispatch through `--dispatcher live --adapter <module>` while keeping deterministic dispatch as the default.
+The local runtime wrapper lives at `skills/reef-relay/scripts/runtime-wrapper.mjs`. It calls the stable public API, writes predictable operator artifacts, and is the local AgentSkill bridge. Opt-in live dispatch is available through `--dispatcher live --adapter <module>` while deterministic dispatch remains the default.
 
 ## Migration notes
 

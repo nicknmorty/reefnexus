@@ -45,11 +45,9 @@ paths for authorized operators, not default-on automation.
 - `docs/VISION.md` - product direction and principles.
 - `docs/SCOPE.md` - what is in/out for early versions.
 - `docs/ARCHITECTURE.md` - conceptual architecture and patterns.
-- `docs/ROADMAP.md` - phased plan.
+- `docs/ROADMAP.md` - roadmap.
 - `docs/API.md` - stable ReefRelay API, internal boundaries, and migration notes.
-- `docs/RUNTIME_WRAPPER.md` - local wrapper, live dispatcher options, and packaging decision.
-- `docs/RUNTIME_READY.md` - runtime-ready closeout, quickstart, acceptance criteria, known limits, and production-readiness checklist.
-- `docs/BETA_REVIEW.md` - V1 beta guide for trusted operator feedback; V2 is the first public-eligible track.
+- `docs/RUNTIME_WRAPPER.md` - local wrapper, live dispatcher options, and artifact layout.
 - `docs/NATIVE_COMMAND.md` - native OpenClaw `/reef_relay` plugin command contract and safety posture.
 - `docs/REEFRELAY_RUNBOOK.md` - practical operator flow and mandatory gates.
 - `docs/AUTO_ORCHESTRATION.md` - automatic direct/lite/full routing behavior.
@@ -67,7 +65,7 @@ paths for authorized operators, not default-on automation.
 - `skills/reef-relay/scripts/runtime-wrapper.mjs` - wrapper around `/reef_relay lite` and `/reef_relay full`.
 - `scripts/` - deterministic routing, runtime, validation, and test scripts.
 - `specs/` - canonical brief and routing fixtures.
-- `runs/samples/`, `runs/lite-samples/`, `runs/simulations/`, and selected `runs/phase-*` directories - sanitized deterministic fixture artifacts used by the test suite.
+- `runs/` - sanitized deterministic fixture artifacts used by the test suite.
 
 ## Safety Posture
 
@@ -79,7 +77,22 @@ paths for authorized operators, not default-on automation.
 - Keep handoffs concise, structured, and auditable.
 - Fail closed on safety, privacy, config, access, destructive actions, and external/public messaging.
 
+## Usage
+
+```bash
+npm test
+node skills/reef-relay/scripts/runtime-wrapper.mjs \
+  --command '/reef_relay lite audit docs' \
+  --out-dir runs/local-smoke/lite
+node skills/reef-relay/scripts/runtime-wrapper.mjs \
+  --command '/reef_relay full review wrapper behavior and verify tests' \
+  --out-dir runs/local-smoke/full
+```
+
+Live modes (`live-lite`, `live-full`) are opt-in, require operator approval, run
+bounded isolated child lanes, and fail closed on malformed child output.
+
 ## Status
 
-Runtime-ready MVP with guarded beta operator testing. See `PROJECT_STATUS.md`,
-`docs/ROADMAP.md`, and `docs/RUNTIME_READY.md`.
+Active project. Deterministic `lite`/`full` paths are covered by fixture tests;
+live modes are opt-in. See `docs/ROADMAP.md`.

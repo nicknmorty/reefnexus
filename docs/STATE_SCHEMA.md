@@ -1,4 +1,4 @@
-# STATE_SCHEMA.md — ReefRelay run/task schema (v0 draft)
+# STATE_SCHEMA.md — ReefRelay run/task schema
 
 This schema standardizes state for orchestration runs.
 

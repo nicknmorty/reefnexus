@@ -95,11 +95,9 @@ At each checkpoint:
 - Enforce universal quality gates for all users/runs; vary diagnostics visibility by audience, not gate strictness.
 - Keep a canonical front-door routing path for orchestrated requests.
 
-## Operating-model learnings
+## Operating-model requirements
 
-See [`docs/OPERATING_MODEL_LEARNINGS.md`](OPERATING_MODEL_LEARNINGS.md) for transferable lessons from manager mode + news-bot + housekeeper + meeseeks/subagent workflows.
-
-Architecture-level requirements pulled from those lessons:
+Architecture-level requirements:
 
 1. Orchestrator owns final acceptance.
 2. Front-door routing is canonical and bypass-resistant.
