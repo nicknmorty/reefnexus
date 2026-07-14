@@ -7,7 +7,6 @@ The naming split:
 
 - **ReefNexus** - the project/repo: the multiagent architecture and coordination hub.
 - **ReefRelay** - the core skill/module: orchestration policy, handoff/routing/contracts, gate logic, and review checkpoints.
-- **Clawstro** - the mascot/brand flourish.
 
 ## Vision
 
